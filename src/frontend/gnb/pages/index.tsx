@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
 
 const Index: React.FunctionComponent = () => {
-  return (
-    <div>hello</div>
-  )
-}
-export default Index
+  return <div>hello</div>;
+};
+export default Index;
