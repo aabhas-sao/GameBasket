@@ -4,113 +4,90 @@ const Footer = () => {
   return (
     <footer className="w-100 text-gray-600 body-font">
       <div
-        className="container px-5 py-24 mx-auto flex md:items-center lg:items-start
+        className=" px-5 py-12 mx-auto w-100 flex md:items-center lg:items-start
           md:flex-row md:flex-nowrap flex-wrap flex-col"
       >
         <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
           <a
             href=""
             className="
-          flex
-          title-font
-          font-medium
-          items-center
-          md:justify-start
-          justify-center
-          text-gray-900
-        "
+              flex
+              title-font
+              font-medium
+              items-center
+              md:justify-start
+              justify-center
+              text-gray-900
+            "
           >
             <i className="fas fa-cubes fa-lg text-purple-500"></i>
-            <span className="ml-3 text-xl">Tailwind elements</span>
+            <span className="ml-3 text-xl">GameBasket</span>
           </a>
-          <p className="mt-2 text-sm text-gray-500">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi,
-            quam?
+          <p className="mt-2 ml-3 text-sm text-gray-500">
+            One Stop for all your gaming needs
           </p>
         </div>
-        <div
-          className="
-        flex-grow flex flex-wrap
-        md:pl-20
-        -mb-10
-        md:mt-0
-        mt-10
-        md:text-left
-        text-center
-      "
-        >
+        <div className="flex-grow flex flex-wrap md:pl-5 -mb-10 md:mt-0 mt-10 md:text-left text-center">
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2
-              className="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
-            >
-              CATEGORIES
+            <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+              Supports & Services
             </h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  First Link
+            <nav className="list-none text-sm text-blue-600 mb-10">
+              <li className="mt-1">
+                <a href="" className="mt-1 hover:text-gray-800">
+                  Visit our Support Center
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Second Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Shop with an Expert
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Third Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Schedule a Service
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Fourth Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Protection & Support Plans
                 </a>
               </li>
             </nav>
           </div>
+
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2
               className="
-            title-font
-            font-medium
-            text-gray-900
-            tracking-widest
-            text-sm
-            mb-3
-          "
+                title-font
+                font-medium
+                text-gray-900
+                tracking-widest
+                text-sm
+                mb-3
+              "
             >
-              CATEGORIES
+              Partnerships
             </h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  First Link
+            <nav className="flex flex-col list-none text-sm text-blue-600 mb-10">
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Affiliate Program
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Second Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Advertise With Us
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Third Link
-                </a>
-              </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Fourth Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Developers
                 </a>
               </li>
             </nav>
           </div>
+
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2
               className="
@@ -122,31 +99,32 @@ const Footer = () => {
             mb-3
           "
             >
-              CATEGORIES
+              Supports & Services
             </h2>
-            <nav className="list-none mb-10">
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  First Link
+            <nav className="list-none text-sm text-blue-600 mb-10">
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Visit our Support Center
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Second Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Shop with an Expert
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Third Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Schedule a Service
                 </a>
               </li>
-              <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Fourth Link
+              <li className="mt-1">
+                <a href="" className="hover:text-gray-800">
+                  Protection & Support Plans
                 </a>
               </li>
             </nav>
           </div>
+
           <div className="lg:w-1/4 md:w-1/2 w-full px-4">
             <h2
               className="
@@ -158,27 +136,27 @@ const Footer = () => {
             mb-3
           "
             >
-              CATEGORIES
+              Supports & Services
             </h2>
-            <nav className="list-none mb-10">
+            <nav className="list-none text-sm text-blue-600 mb-10">
               <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  First Link
+                <a href="" className="hover:text-gray-800">
+                  Visit our Support Center
                 </a>
               </li>
               <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Second Link
+                <a href="" className="hover:text-gray-800">
+                  Shop with an Expert
                 </a>
               </li>
               <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Third Link
+                <a href="" className="hover:text-gray-800">
+                  Schedule a Service
                 </a>
               </li>
               <li>
-                <a href="" className="text-gray-600 hover:text-gray-800">
-                  Fourth Link
+                <a href="" className="hover:text-gray-800">
+                  Protection & Support Plans
                 </a>
               </li>
             </nav>
@@ -188,13 +166,13 @@ const Footer = () => {
       <div className="bg-gray-100">
         <div
           className="
-        container
-        mx-auto
-        py-4
-        px-5
-        flex flex-wrap flex-col
-        sm:flex-row
-      "
+            container
+            mx-auto
+            py-4
+            px-5
+            flex flex-wrap flex-col
+            sm:flex-row
+          "
         >
           <p className="text-gray-500 text-sm text-center sm:text-left">
             © 2021 Copyright:
@@ -204,7 +182,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Tailwind Elements
+              GameBasket
             </a>
           </p>
           <span
