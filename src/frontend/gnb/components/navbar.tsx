@@ -11,8 +11,8 @@ import {
 const navigation = {
   categories: [
     {
-      id: "women",
-      name: "Women",
+      id: "electronics",
+      name: "Electronics",
       featured: [
         {
           name: "New Arrivals",
@@ -73,8 +73,8 @@ const navigation = {
       ],
     },
     {
-      id: "men",
-      name: "Men",
+      id: "games",
+      name: "Games",
       featured: [
         {
           name: "New Arrivals",
@@ -132,10 +132,10 @@ const navigation = {
       ],
     },
   ],
-  pages: [
-    { name: "Company", href: "#" },
-    { name: "Stores", href: "#" },
-  ],
+  // pages: [
+  //   { name: "Company", href: "#" },
+  //   { name: "Stores", href: "#" },
+  // ],
 };
 
 function classNames(...classes: string[]) {
@@ -274,7 +274,7 @@ export default function Example() {
                 </Tab.Panels>
               </Tab.Group>
 
-              <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+              {/* <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                 {navigation.pages.map((page) => (
                   <div key={page.name} className="flow-root">
                     <a
@@ -285,7 +285,7 @@ export default function Example() {
                     </a>
                   </div>
                 ))}
-              </div>
+              </div> */}
 
               <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                 <div className="flow-root">
@@ -385,7 +385,7 @@ export default function Example() {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                           >
-                            <Popover.Panel className="absolute top-full inset-x-0 text-sm text-gray-500">
+                            <Popover.Panel className="absolute z-40 top-full inset-x-0 text-sm text-gray-500">
                               {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                               <div
                                 className="absolute inset-0 top-1/2 bg-white shadow"
@@ -468,7 +468,7 @@ export default function Example() {
                     </Popover>
                   ))}
 
-                  {navigation.pages.map((page) => (
+                  {/* {navigation.pages.map((page) => (
                     <a
                       key={page.name}
                       href={page.href}
@@ -476,7 +476,7 @@ export default function Example() {
                     >
                       {page.name}
                     </a>
-                  ))}
+                  ))} */}
                 </div>
               </Popover.Group>
 
