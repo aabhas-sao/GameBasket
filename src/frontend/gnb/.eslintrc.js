@@ -23,4 +23,9 @@ module.exports = {
   'rules': {
     'linebreak-style': 0,
   },
+  'settings': {
+    'react': {
+      'version': 'latest',
+    },
+  },
 };
