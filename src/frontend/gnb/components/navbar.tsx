@@ -486,7 +486,7 @@ export default function Example() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link href="/auth/sigin">
+                  <Link href="/auth/signin">
                     <a className="text-sm font-medium text-gray-700 hover:text-gray-800">
                       Sign in
                     </a>
