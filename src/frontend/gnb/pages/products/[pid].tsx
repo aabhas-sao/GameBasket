@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import CustomButton from "../../components/customButton";
 
@@ -49,17 +50,28 @@ const ProductList = () => {
       <div className="divide-y divide-gray-300">
         {data.map((product) => (
           <article
-            className="flex p-2 md:p-4 md:w-2/3 mx-auto "
+            className="flex p-2 md:p-4 md:w-2/3 mx-auto justify-evenly"
             key={product.id}
           >
-            <div>
+            <div className="flex flex-row">
               <img className="h-16 md:h-32 " src={`${product.src}`} />
+              <div className="flex text-sm flex-col ml-4 md:ml-8 flex-2">
+                <div className="text-blue-700">
+                  <Link
+                    href={{
+                      pathname: "/product",
+                      query: { id: product.id },
+                    }}
+                  >
+                    <a>{product.name}</a>
+                  </Link>
+                </div>
+                <div>{product.category}</div>
+                <div>{product.subcategory}</div>
+              </div>
             </div>
-            <div className="flex flex-col ml-4 md:ml-8 flex-2">
-              <div>{product.name}</div>
-              <div>{product.price}</div>
-              <div>{product.category}</div>
-              <div>{product.subcategory}</div>
+            <div className="flex flex-col justify-around">
+              <div className="text-2xl font-bold">{product.price}</div>
               <CustomButton title="add to cart" />
             </div>
           </article>

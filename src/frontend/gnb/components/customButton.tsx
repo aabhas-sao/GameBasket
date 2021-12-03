@@ -1,4 +1,4 @@
-import { ShoppingCartIcon, XIcon } from "@heroicons/react/outline";
+import { ShoppingCartIcon } from "@heroicons/react/outline";
 import React from "react";
 
 interface ButtonProps {
@@ -7,9 +7,9 @@ interface ButtonProps {
 
 const CustomButton: React.FC<ButtonProps> = ({ title }) => {
   return (
-    <button className="rounded-md flex text-xs md:text-sm flex-row bg-yellow-300 p-2">
-      <ShoppingCartIcon className="w-4 md:w-6" />
-      <a href="@" className="ml-1 md:ml-1.5 font-semibold text-gray-700">
+    <button className="rounded-md flex text-xs flex-row bg-yellow-300 p-2">
+      <ShoppingCartIcon className="w-4" />
+      <a href="@" className="ml-1 md:ml-1.5 font-bold text-gray-700">
         {title}
       </a>
     </button>
