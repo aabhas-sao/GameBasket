@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import CustomButton from "../../components/customButton";
 
 const data = [
   {
@@ -42,7 +43,9 @@ const ProductList = () => {
 
   return (
     <div className="container">
-      <h1 className="text-center">{pid}</h1>
+      <h1 className="text-center gray-700 text-xl my-4 md:my-8 md:text-2xl font-bold">
+        Showing results for {pid}
+      </h1>
       <div className="divide-y divide-gray-300">
         {data.map((product) => (
           <article
@@ -57,6 +60,7 @@ const ProductList = () => {
               <div>{product.price}</div>
               <div>{product.category}</div>
               <div>{product.subcategory}</div>
+              <CustomButton title="add to cart" />
             </div>
           </article>
         ))}
