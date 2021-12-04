@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { register } from "../../firebase/authServices";
+import { updateProfile } from "@firebase/auth";
+import { auth } from "../../firebase/firebase";
 
 // eslint-disable-next-line require-jsdoc
 export default function Signup() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     await register(email, password);
+    try {
+      await updateProfile(auth.currentUser!, {
+        displayName: name,
+      });
+    } catch (e) {
+      console.log("error updating display name");
+    }
   };
 
   return (
@@ -51,6 +61,23 @@ export default function Signup() {
           >
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
+              <div>
+                <label htmlFor="name" className="sr-only">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="name"
+                  autoComplete="name"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Name"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+              </div>
               <div>
                 <label htmlFor="email-address" className="sr-only">
                   Email address

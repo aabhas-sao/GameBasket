@@ -8,6 +8,8 @@ import {
   ShoppingBagIcon,
   XIcon,
 } from "@heroicons/react/outline";
+import { onAuthStateChanged } from "@firebase/auth";
+import { auth } from "../firebase/firebase";
 
 const navigation = {
   categories: [
@@ -146,6 +148,15 @@ function classNames(...classes: string[]) {
 
 export default function Example() {
   const [open, setOpen] = useState(false);
+  const [displayName, setDisplayName] = useState<string | null>("");
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setDisplayName(user.displayName);
+    } else {
+      setDisplayName("");
+    }
+  });
 
   return (
     <div className="bg-white">
@@ -485,37 +496,49 @@ export default function Example() {
               </Popover.Group>
 
               <div className="ml-auto flex items-center">
-                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <Link href="/auth/signin">
-                    <a className="text-sm font-medium text-gray-700 hover:text-gray-800">
-                      Sign in
-                    </a>
-                  </Link>
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <Link href="/auth/signup">
-                    <a
-                      href="#"
-                      className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      Create account
-                    </a>
-                  </Link>
-                </div>
+                {/* Auth UI components */}
+                {displayName ? (
+                  <h1>{displayName}</h1>
+                ) : (
+                  <div>
+                    <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                      <Link href="/auth/signin">
+                        <a className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                          Sign in
+                        </a>
+                      </Link>
+                      <span
+                        className="h-6 w-px bg-gray-200"
+                        aria-hidden="true"
+                      />
+                      <Link href="/auth/signup">
+                        <a
+                          href="#"
+                          className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                        >
+                          Create account
+                        </a>
+                      </Link>
+                    </div>
 
-                <div className="hidden lg:ml-8 lg:flex">
-                  <a
-                    href="#"
-                    className="text-gray-700 hover:text-gray-800 flex items-center"
-                  >
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="w-5 h-auto block flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
+                    <div className="hidden lg:ml-8 lg:flex">
+                      <a
+                        href="#"
+                        className="text-gray-700 hover:text-gray-800 flex items-center"
+                      >
+                        <img
+                          src="https://tailwindui.com/img/flags/flag-canada.svg"
+                          alt=""
+                          className="w-5 h-auto block flex-shrink-0"
+                        />
+                        <span className="ml-3 block text-sm font-medium">
+                          CAD
+                        </span>
+                        <span className="sr-only">, change currency</span>
+                      </a>
+                    </div>
+                  </div>
+                )}
 
                 {/* Search */}
                 {/* <div className="flex lg:ml-6">
