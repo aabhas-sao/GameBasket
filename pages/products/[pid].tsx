@@ -5,41 +5,6 @@ import CustomButton from "../../components/customButton";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
 
-// const data = [
-//   {
-//     name: "Pixel 6 Pro",
-//     price: "$400",
-//     id: 1,
-//     src: "https://images.unsplash.com/flagged/1/apple-gear-looking-pretty.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-//     category: "electronics",
-//     subcategory: "mobiles",
-//   },
-//   {
-//     name: "Pixel 6 Pro",
-//     price: "$400",
-//     id: 2,
-//     src: "https://images.unsplash.com/flagged/1/apple-gear-looking-pretty.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-//     category: "electronics",
-//     subcategory: "mobiles",
-//   },
-//   {
-//     name: "Pixel 6 Pro",
-//     price: "$400",
-//     id: 3,
-//     src: "https://images.unsplash.com/flagged/1/apple-gear-looking-pretty.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-//     category: "electronics",
-//     subcategory: "mobiles",
-//   },
-//   {
-//     name: "Pixel 6 Pro",
-//     price: "$400",
-//     id: 4,
-//     src: "https://images.unsplash.com/flagged/1/apple-gear-looking-pretty.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
-//     category: "electronics",
-//     subcategory: "mobiles",
-//   },
-// ];
-
 const ProductList = () => {
   const router = useRouter();
   const { pid } = router.query;
@@ -102,8 +67,6 @@ const ProductList = () => {
                       pathname: "/product",
                       query: {
                         id: product.id,
-                        title: product.title,
-                        image: product.image,
                       },
                     }}
                   >

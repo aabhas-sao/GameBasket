@@ -1,27 +1,41 @@
 import { GetServerSideProps } from "next";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 import ProductDetails from "../components/productDetails";
+import { fetchProduct } from "../firebase/products/readProducts";
 
 // eslint-disable-next-line require-jsdoc
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       id: context.query.id,
-      title: context.query.id,
-      image: context.query.image,
     }, // will be passed to the page component as props
   };
 };
 
 interface Props {
   id: string;
-  title: string;
-  image: string;
 }
 
-const ProductRoute: React.FC<Props> = ({ id, title, image }) => {
-  console.log(id);
-  return <ProductDetails image={image} title={title} />;
+const ProductRoute: React.FC<Props> = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const pid = id as string;
+  const [product, setProduct] = useState<any>({});
+
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+    console.log(id, "iddd");
+    fetchProduct(pid).then((res) => {
+      setProduct(res);
+    });
+  }, [id]);
+
+  const { image, title, price } = product;
+
+  return <ProductDetails image={image} title={title} price={price} />;
 };
 
 export default ProductRoute;
