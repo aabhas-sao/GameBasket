@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 body {
   padding: 0;
@@ -30,4 +29,8 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+.filler {
+  min-height: 40vh;
 }
