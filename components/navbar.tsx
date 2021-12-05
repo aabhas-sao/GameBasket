@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/outline";
 import { onAuthStateChanged } from "@firebase/auth";
 import { auth } from "../firebase/firebase";
+import { signOut } from "firebase/auth";
 
 const navigation = {
   categories: [
@@ -151,8 +152,9 @@ export default function Example() {
   const [displayName, setDisplayName] = useState<string | null>("");
 
   onAuthStateChanged(auth, (user) => {
+    console.log(user?.email);
     if (user) {
-      setDisplayName(user.displayName);
+      if (user.displayName) setDisplayName(user.displayName);
     } else {
       setDisplayName("");
     }
@@ -498,9 +500,19 @@ export default function Example() {
               <div className="ml-auto flex items-center">
                 {/* Auth UI components */}
                 {displayName ? (
-                  <h1>{displayName}</h1>
+                  <div className="flex flex-row">
+                    <h1 className="p-1">{displayName}</h1>
+                    <button
+                      onClick={() => {
+                        signOut(auth);
+                      }}
+                      className="p-1 hidden lg:inline text-blue-700"
+                    >
+                      Sign out
+                    </button>
+                  </div>
                 ) : (
-                  <div>
+                  <div className="flex flex-row">
                     <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
                       <Link href="/auth/signin">
                         <a className="text-sm font-medium text-gray-700 hover:text-gray-800">

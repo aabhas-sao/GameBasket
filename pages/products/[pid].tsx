@@ -90,13 +90,13 @@ const ProductList = () => {
       <div className="divide-y divide-gray-300">
         {products.map((product) => (
           <article
-            className="flex flex-col md:flex-row p-2 md:p-4 md:w-4/5 mx-auto justify-evenly"
+            className="flex mt-3 pt-4 flex-col md:flex-row p-2 md:p-4 md:w-4/5 mx-auto justify-evenly"
             key={product.id}
           >
-            <div className="flex  md:w-2/3 flex-row">
-              <img className="h2  md:w-32 " src={`${product.image}`} />
+            <div className="flex md:w-2/3 flex-row">
+              <img className="w-20 md:w-32 " src={`${product.image}`} />
               <div className="w-2/3  flex text-sm flex-col ml-4 md:ml-8 flex-2">
-                <div className="text-xs text-blue-700">
+                <div className="text-xs my-auto ">
                   <Link
                     href={{
                       pathname: "/product",
@@ -107,12 +107,17 @@ const ProductList = () => {
                       },
                     }}
                   >
-                    <a>{product.title}</a>
+                    <a className="text-blue-700">
+                      <p className="line-clamp-2">{product.title}</p>
+                    </a>
                   </Link>
+                  <p className="md:hidden mt-1 text-sm font-medium">
+                    ₹{product.price}
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="flex flex-col justify-around">
+            <div className="hidden md:flex flex-col justify-around">
               <div className="text-lg md:text-2xl font-bold">
                 ₹{product.price}
               </div>
