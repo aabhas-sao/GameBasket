@@ -2,16 +2,42 @@ import React, { useState } from "react";
 import InputField from "../components/ui/input";
 import SelectField from "../components/ui/select";
 import { subcategoryEnum } from "../constants/subcategory";
+import { createProduct } from "../firebase/products/createProduct";
+import {
+  timeStampFromInputTimeDateLocal,
+  timestampGenerator,
+} from "../firebase/utils/timestamp";
 
 const Admin = () => {
   const [title, setTitle] = useState<string>("");
   const [src, setSrc] = useState<string>("");
-  const [price, setPrice] = useState<string>("");
-  const [time, setTime] = useState<string>("");
+  const [price, setPrice] = useState<string>("0");
+  const [date, setDate] = useState<string>("");
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(title, src, parseInt(price), time);
+    console.log(title, src, price, date);
+    const timeObj = timeStampFromInputTimeDateLocal(date);
+
+    const { day, month, timezone, year } = timeObj;
+
+    const firebaseTimestamp = timestampGenerator(
+      month,
+      day,
+      year,
+      timezone,
+      timeObj.time
+    );
+
+    console.log(firebaseTimestamp);
+    createProduct({
+      title,
+      price: parseInt(price),
+      subcategory: "phones",
+      brand: "Google",
+      date,
+      specs: { cpu: "snapdragon" },
+    });
   };
   return (
     <div className="w-1/2 mx-auto">
@@ -42,12 +68,12 @@ const Admin = () => {
           type="number"
         />
         <InputField
-          id="time"
+          id="date"
           placeholder=""
           autocomplete="none"
           name="releaseDate"
-          setField={setTime}
-          type="datetime-local"
+          setField={setDate}
+          type="date"
         />
         <SelectField
           name="subcategory"
