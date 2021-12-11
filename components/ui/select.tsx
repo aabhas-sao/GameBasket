@@ -2,20 +2,20 @@ import React from "react";
 
 interface SelectFieldProps {
   id: string;
-  title: string;
+  labelTitle: string;
   options: string[];
   name: string;
 }
 
 const SelectField: React.FC<SelectFieldProps> = ({
   id,
-  title,
+  labelTitle,
   options,
   name,
 }) => {
   return (
-    <>
-      <label htmlFor={id}> {title} </label>
+    <div className="flex flex-col">
+      <label htmlFor={id}> {labelTitle} </label>
       <select name={name} id={id}>
         {options.map((item, idx) => (
           <option key={idx} value={item}>
@@ -23,7 +23,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
           </option>
         ))}
       </select>
-    </>
+    </div>
   );
 };
 

@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import InputField from "../components/ui/input";
+import SelectField from "../components/ui/select";
+import { subcategoryEnum } from "../constants/subcategory";
 
 const Admin = () => {
   const [title, setTitle] = useState<string>("");
   const [src, setSrc] = useState<string>("");
   const [price, setPrice] = useState<string>("");
+  const [time, setTime] = useState<string>("");
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(title, src, parseInt(price));
+    console.log(title, src, parseInt(price), time);
   };
   return (
     <div className="w-1/2 mx-auto">
@@ -37,6 +40,20 @@ const Admin = () => {
           name="price"
           setField={setPrice}
           type="number"
+        />
+        <InputField
+          id="time"
+          placeholder=""
+          autocomplete="none"
+          name="releaseDate"
+          setField={setTime}
+          type="datetime-local"
+        />
+        <SelectField
+          name="subcategory"
+          options={subcategoryEnum}
+          labelTitle="subcategory"
+          id="subcategory"
         />
         <button>Submit</button>
       </form>
