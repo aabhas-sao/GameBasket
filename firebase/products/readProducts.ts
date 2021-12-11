@@ -38,7 +38,7 @@ export const fetchProduct = async (id: string) => {
 
 export const fetchNewArrivals = async () => {
     try {
-        const products: DocumentData = [];
+        const products: DocumentData[] = [];
         const q = query(ProductsCollectionRef, orderBy("releaseDate"), limit(5));
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach(doc => products.push(doc.data()));
