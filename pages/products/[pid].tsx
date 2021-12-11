@@ -8,7 +8,6 @@ const ProductDynamicPage = () => {
   const router = useRouter();
   const { pid } = router.query;
   const [products, setProducts] = useState<any[]>([]);
-
   const subcategory: string = pid as string;
 
   useEffect(() => {
@@ -38,8 +37,6 @@ const ProductDynamicPage = () => {
         };
         prodlocal.push(item);
       });
-
-      console.log("hey");
 
       if (prodlocal.length != products.length) setProducts(prodlocal);
     })();
