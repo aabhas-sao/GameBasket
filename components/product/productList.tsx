@@ -3,11 +3,11 @@ import Link from "next/link";
 import CustomButton from "../customButton";
 
 interface ProductListProps {
-  products: any[];
   subcategory: string;
+  products: any[];
 }
 
-const ProductList: React.FC<ProductListProps> = ({ products, subcategory }) => {
+const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
   return (
     <div className="container filler">
       <h1 className="text-center gray-700 text-xl my-4 md:my-8 md:text-2xl font-bold">
