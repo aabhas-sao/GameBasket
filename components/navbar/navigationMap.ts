@@ -37,18 +37,18 @@ export const navigation = {
                         // { name: "Browse All", href: "#" },
                     ],
                 },
-                {
-                    id: "accessories",
-                    name: "Accessories",
-                    items: [
-                        { name: "Keyboards", href: "/products/keyboards" },
-                        { name: "Mouse", href: "/products/mouse" },
-                        { name: "Headphones", href: "/products/headphones" },
-                        { name: "Gamepads", href: "/products/gamepads" },
-                        // { name: "", href: "#" },
-                        // { name: "Belts", href: "#" },
-                    ],
-                },
+                // {
+                //     id: "accessories",
+                //     name: "Accessories",
+                //     items: [
+                //         { name: "Keyboards", href: "/products/keyboards" },
+                //         { name: "Mouse", href: "/products/mouse" },
+                //         { name: "Headphones", href: "/products/headphones" },
+                //         { name: "Gamepads", href: "/products/gamepads" },
+                //         // { name: "", href: "#" },
+                //         // { name: "Belts", href: "#" },
+                //     ],
+                // },
                 {
                     id: "brands",
                     name: "Brands",
