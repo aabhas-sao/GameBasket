@@ -45,7 +45,7 @@ const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
               <div className="text-lg md:text-2xl font-bold">
                 ₹{product.price}
               </div>
-              <CustomButton title="add to cart" />
+              <CustomButton handleClick={() => {}} title="add to cart" />
             </div>
           </article>
         ))}
