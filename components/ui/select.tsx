@@ -5,6 +5,7 @@ interface SelectFieldProps {
   labelTitle: string;
   options: string[];
   name: string;
+  setField: (value: React.SetStateAction<string>) => void;
 }
 
 const SelectField: React.FC<SelectFieldProps> = ({
@@ -12,11 +13,12 @@ const SelectField: React.FC<SelectFieldProps> = ({
   labelTitle,
   options,
   name,
+  setField,
 }) => {
   return (
     <div className="flex flex-col">
       <label htmlFor={id}> {labelTitle} </label>
-      <select name={name} id={id}>
+      <select name={name} id={id} onChange={(e) => setField(e.target.value)}>
         {options.map((item, idx) => (
           <option key={idx} value={item}>
             {item}

@@ -1,4 +1,4 @@
-import { doc, setDoc, Timestamp } from 'firebase/firestore';
+import { addDoc, Timestamp, collection } from 'firebase/firestore';
 import { db } from '../firebase';
 
 interface createProductProps {
@@ -10,8 +10,9 @@ interface createProductProps {
     specs: any,
 }
 
+const productCollectionRef = collection(db, 'products');
+
 export const createProduct = async ({ title, price, subcategory, brand, date, specs }: createProductProps) => {
-    const docRef = doc(db, 'products');
     const docData = {
         title,
         price,
@@ -21,7 +22,8 @@ export const createProduct = async ({ title, price, subcategory, brand, date, sp
         specs,
     }
 
-    // await setDoc(docRef, docData);
+    const docRef = await addDoc(productCollectionRef, docData);
+
     console.log(docRef);
     console.log(docData);
 }

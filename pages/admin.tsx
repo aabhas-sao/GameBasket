@@ -13,6 +13,7 @@ const Admin = () => {
   const [src, setSrc] = useState<string>("");
   const [price, setPrice] = useState<string>("0");
   const [date, setDate] = useState<string>("");
+  const [subcategory, setSubcategory] = useState<string>("laptops");
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -80,6 +81,7 @@ const Admin = () => {
           options={subcategoryEnum}
           labelTitle="subcategory"
           id="subcategory"
+          setField={setSubcategory}
         />
         <button>Submit</button>
       </form>
