@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "./customButton";
+import CustomButton from "./ui/customButton";
 
 interface Props {
   image: string;
@@ -19,8 +19,8 @@ const ProductDetails: React.FC<Props> = ({ image, title, price }) => {
           {/* <div>ratings</div> */}
           <div>{price}</div>
           <div className="flex md:w-2/5 justify-between flex-col md:flex-row">
-            <CustomButton title="Buy Now" />
-            <CustomButton title="Add to Cart" />
+            <CustomButton handleClick={() => {}} title="Buy Now" />
+            <CustomButton handleClick={() => {}} title="Add to Cart" />
           </div>
         </div>
         <div>

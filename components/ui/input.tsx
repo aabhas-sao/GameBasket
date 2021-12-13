@@ -19,7 +19,7 @@ const InputField: React.FC<InputFieldProps> = ({
 }) => {
   return (
     <div>
-      <label htmlFor={id} className="ml-2 block text-sm text-gray-900">
+      <label htmlFor={id} className="ml-2 my-1.5 block text-sm text-gray-900">
         {name}
       </label>
       <input

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CustomFields from "../components/admin/customFields";
 import InputField from "../components/ui/input";
 import SelectField from "../components/ui/select";
+import Spacer from "../components/ui/spacer";
 import { subcategoryEnum } from "../constants/subcategory";
 // import { createProduct } from "../firebase/products/createProduct";
 
@@ -31,10 +32,11 @@ const Admin = () => {
     //   specs: { cpu: "snapdragon" },
     // });
   };
+  const vs = 4;
   return (
-    <div className="w-1/2 mx-auto">
-      <h1>Add Product</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="w-4/5 md:w-1/2 mx-auto">
+      <h1 className="mb-2 font-semibold">Add Product</h1>
+      <form className="" onSubmit={handleSubmit}>
         <InputField
           id="title"
           placeholder="Product Name"
@@ -43,6 +45,7 @@ const Admin = () => {
           setField={setTitle}
           type="name"
         />
+        <Spacer px={vs} />
         <InputField
           id="src"
           placeholder="Image link"
@@ -51,6 +54,7 @@ const Admin = () => {
           setField={setSrc}
           type="name"
         />
+        <Spacer px={vs} />
         <InputField
           id="price"
           placeholder="0"
@@ -59,6 +63,7 @@ const Admin = () => {
           setField={setPrice}
           type="number"
         />
+        <Spacer px={vs} />
         <InputField
           id="date"
           placeholder=""
@@ -67,6 +72,7 @@ const Admin = () => {
           setField={setDate}
           type="date"
         />
+        <Spacer px={vs} />
         <InputField
           id="brand"
           placeholder=""
@@ -75,6 +81,7 @@ const Admin = () => {
           setField={setBrand}
           type="name"
         />
+        <Spacer px={vs} />
         <SelectField
           name="subcategory"
           options={subcategoryEnum}
@@ -82,7 +89,9 @@ const Admin = () => {
           id="subcategory"
           setField={setSubcategory}
         />
+        <Spacer px={vs} />
         <CustomFields items={customFields} setCustomFields={setCustomFields} />
+        <Spacer px={vs} />
         <button>Submit</button>
       </form>
     </div>

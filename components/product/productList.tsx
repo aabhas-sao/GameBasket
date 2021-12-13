@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import CustomButton from "../customButton";
+import CustomButton from "../ui/customButton";
 
 interface ProductListProps {
   subcategory: string;
