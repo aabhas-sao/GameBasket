@@ -57,7 +57,7 @@ const CustomFields: React.FC<Props> = ({ items, setCustomFields }) => {
         setField={setValue}
       />
 
-      <Spacer px={vs + 2} />
+      <Spacer px={4} />
       <CustomButton handleClick={handleClick} title={"add"} />
     </div>
   );
