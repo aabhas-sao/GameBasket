@@ -1,5 +1,5 @@
 import React from "react";
-import CustomButton from "./ui/customButton";
+import CustomButton from "../ui/customButton";
 
 interface Props {
   image: string;

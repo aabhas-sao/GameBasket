@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import ProductDetails from "../components/productDetails";
+import ProductDetails from "../components/product/productDetails";
 import { fetchProduct } from "../firebase/products/readProducts";
 
 // eslint-disable-next-line require-jsdoc
