@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           className="w-full h-full object-scale-down lg:w-full lg:h-full"
         />
       </div>
-      <div className="mt-4 flex justify-between">
+      <div className="mt-4 flex flex-col justify-between">
         <div>
           <Link
             href={{

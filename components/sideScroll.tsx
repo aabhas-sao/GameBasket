@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { fetchDeals } from "../firebase/products/readProducts";
 import ProductCard from "./product/productCard";
-import dummyData from "./testData/products.json";
+import dummyData from "../testData/products.json";
 
 /**
  * Side wise scrollable product list
@@ -28,7 +28,7 @@ const SideScroll = (): React.ReactElement => {
           Today&apos;s Deals
         </h2>
 
-        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {products.map((product, idx) => (
             <ProductCard key={idx} {...product} />
           ))}

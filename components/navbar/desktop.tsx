@@ -201,7 +201,7 @@ const Desktop: React.FC<PropsType> = ({ open, setOpen, displayName }) => {
                     </Link>
                   </div>
 
-                  <div className="hidden lg:ml-8 lg:flex">
+                  {/* <div className="hidden lg:ml-8 lg:flex">
                     <a
                       href="#"
                       className="text-gray-700 hover:text-gray-800 flex items-center"
@@ -216,7 +216,7 @@ const Desktop: React.FC<PropsType> = ({ open, setOpen, displayName }) => {
                       </span>
                       <span className="sr-only">, change currency</span>
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               )}
 

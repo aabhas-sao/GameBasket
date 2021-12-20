@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "Pixel 6 Pro",
+    "image": "https://lh3.googleusercontent.com/Yoa_Alj_qOpaEAOivEvQQ69uApvSzrGxmdBhPIS6avwLLoV9sSWWbWIH_2_d-d0o6cSyTvoOk6aTPrVGVimqQbCKjhgdI4kGSBk",
+    "price": 70000,
+    "category": "electronics",
+    "subcategory": "smartphones",
+    "details": {}
+  },
+  {
+    "id": 2,
+    "title": "Iphone 13 pro",
+    "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652954000",
+    "price": 130000,
+    "category": "electronics",
+    "subcategory": "smartphones"
+  },
+  {
+    "id": 3,
+    "title": "Alienware 15R6",
+    "image": "https://www.notebookcheck.net/uploads/tx_nbc2/Alienwarem15R6__1__06.png",
+    "price": 230000,
+    "category": "electronics",
+    "subcategory": "laptops"
+  },
+  {
+    "id": 4,
+    "title": "Iphone 13 pro",
+    "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652954000",
+    "price": 130000,
+    "category": "electronics",
+    "subcategory": "smartphones"
+  },
+  {
+    "id": 5,
+    "title": "Pixel 6 Pro",
+    "image": "https://lh3.googleusercontent.com/Yoa_Alj_qOpaEAOivEvQQ69uApvSzrGxmdBhPIS6avwLLoV9sSWWbWIH_2_d-d0o6cSyTvoOk6aTPrVGVimqQbCKjhgdI4kGSBk",
+    "price": 70000,
+    "category": "electronics",
+    "subcategory": "smartphones",
+    "details": {}
+  },
+  {
+    "id": 6,
+    "title": "Alienware 15R6",
+    "image": "https://www.notebookcheck.net/uploads/tx_nbc2/Alienwarem15R6__1__06.png",
+    "price": 230000,
+    "category": "electronics",
+    "subcategory": "laptops"
+  },
+  {
+    "id": 7,
+    "title": "Iphone 13 pro",
+    "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652954000",
+    "price": 130000,
+    "category": "electronics",
+    "subcategory": "smartphones"
+  },
+  {
+    "id": 8,
+    "title": "Pixel 6 Pro",
+    "image": "https://lh3.googleusercontent.com/Yoa_Alj_qOpaEAOivEvQQ69uApvSzrGxmdBhPIS6avwLLoV9sSWWbWIH_2_d-d0o6cSyTvoOk6aTPrVGVimqQbCKjhgdI4kGSBk",
+    "price": 70000,
+    "category": "electronics",
+    "subcategory": "smartphones",
+    "details": {}
+  },
+  {
+    "id": 9,
+    "title": "Alienware 15R6",
+    "image": "https://www.notebookcheck.net/uploads/tx_nbc2/Alienwarem15R6__1__06.png",
+    "price": 230000,
+    "category": "electronics",
+    "subcategory": "laptops"
+  }
+]

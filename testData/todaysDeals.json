@@ -5,7 +5,8 @@
     "image": "https://lh3.googleusercontent.com/Yoa_Alj_qOpaEAOivEvQQ69uApvSzrGxmdBhPIS6avwLLoV9sSWWbWIH_2_d-d0o6cSyTvoOk6aTPrVGVimqQbCKjhgdI4kGSBk",
     "price": 70000,
     "category": "electronics",
-    "subcategory": "smartphones"
+    "subcategory": "smartphones",
+    "details": {}
   },
   {
     "id": 2,
