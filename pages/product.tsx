@@ -36,9 +36,7 @@ const ProductRoute: React.FC<Props> = () => {
     // });
   }, [id]);
 
-  const { image, title, price } = product;
-
-  return <ProductDetails image={image} title={title} price={price} />;
+  return <ProductDetails {...product} />;
 };
 
 export default ProductRoute;

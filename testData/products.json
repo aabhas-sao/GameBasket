@@ -6,7 +6,10 @@
     "price": 70000,
     "category": "electronics",
     "subcategory": "smartphones",
-    "details": {}
+    "specs": {
+      "ram": "4gb",
+      "battery": "3600mAh"
+    }
   },
   {
     "id": 2,
@@ -14,7 +17,10 @@
     "image": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652954000",
     "price": 130000,
     "category": "electronics",
-    "subcategory": "smartphones"
+    "subcategory": "smartphones",
+    "specs": {
+      "ram": "4 gb"
+    }
   },
   {
     "id": 3,

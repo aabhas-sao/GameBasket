@@ -1,4 +1,3 @@
-import { ShoppingCartIcon } from "@heroicons/react/outline";
 import React from "react";
 
 interface ButtonProps {
@@ -6,7 +5,11 @@ interface ButtonProps {
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const CustomButton: React.FC<ButtonProps> = ({ title, handleClick }) => {
+const CustomButton: React.FC<ButtonProps> = ({
+  title,
+  handleClick,
+  children,
+}) => {
   return (
     <button
       onClick={(e) => {
@@ -14,7 +17,7 @@ const CustomButton: React.FC<ButtonProps> = ({ title, handleClick }) => {
       }}
       className="rounded-md flex text-xs flex-row bg-yellow-300 p-2"
     >
-      <ShoppingCartIcon className="w-4" />
+      {children}
       <a href="@" className="ml-1 md:ml-1.5 font-bold text-gray-700">
         {title}
       </a>

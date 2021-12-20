@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputField from "../ui/input";
 import Spacer from "../ui/spacer";
-import CustomButton from "../ui/customButton";
+import CustomButton from "../ui/buttons/customButton";
 
 interface Props {
   items: { [index: string]: string };
@@ -58,7 +58,6 @@ const CustomFields: React.FC<Props> = ({ items, setCustomFields }) => {
       />
 
       <Spacer px={4} />
-      <CustomButton handleClick={handleClick} title={"add"} />
     </div>
   );
 };
