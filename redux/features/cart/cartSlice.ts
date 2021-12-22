@@ -12,7 +12,7 @@ const cartItems = products.map(product => ({
 }))
 
 const initialState: CounterState = {
-    count: 0,
+    count: cartItems.length,
     items: cartItems
 }
 
@@ -44,10 +44,15 @@ export const cartSlice = createSlice({
         },
         removeItem: (state, action) => {
             const { id } = action.payload;
+            state.count -= 1;
             state.items = state.items.filter((item) => id !== item.product.id)
         },
         addItem: (state, action) => {
-            state.items.push(action.payload.item);
+            const id = state.items.filter(item => item.product.id === action.payload.item.id);
+            console.log(id);
+            if (id.length >= 1) return;
+            state.count += 1;
+            state.items.push({ count: 1, product: action.payload.item });
         }
     }
 })

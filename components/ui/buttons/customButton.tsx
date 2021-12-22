@@ -27,8 +27,7 @@ const CustomButton: React.FC<ButtonProps> = ({
     >
       {children}
       {title ? (
-        <a
-          href="@"
+        <span
           className={
             color
               ? `ml-1 md:ml-1.5 font-bold ${color}`
@@ -36,7 +35,7 @@ const CustomButton: React.FC<ButtonProps> = ({
           }
         >
           {title}
-        </a>
+        </span>
       ) : (
         <></>
       )}

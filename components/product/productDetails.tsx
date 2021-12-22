@@ -12,6 +12,7 @@ interface Props {
 
 const ProductDetails: React.FC<Props> = ({ image, title, price, specs }) => {
   console.log(specs);
+  const product = { id: 1, image, price, specs };
   return (
     <article className="w-10/12 mx-auto card flex flex-col md:flex-row">
       <div className="md:w-2/5">
@@ -24,7 +25,7 @@ const ProductDetails: React.FC<Props> = ({ image, title, price, specs }) => {
           <div className="flex flex-row justify-center mt-8">
             <Buy />
             <Spacer px={2} />
-            <AddToCart />
+            <AddToCart item={product} />
             <div className="ml-4"></div>
           </div>
         </div>
