@@ -3,6 +3,8 @@ import React from "react";
 import { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
 import Layout from "../components/layout";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 /**
  * App component Next
@@ -10,9 +12,11 @@ import Layout from "../components/layout";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   );
 };
 

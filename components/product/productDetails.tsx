@@ -14,11 +14,11 @@ const ProductDetails: React.FC<Props> = ({ image, title, price, specs }) => {
   console.log(specs);
   return (
     <article className="w-10/12 mx-auto card flex flex-col md:flex-row">
-      <div>
+      <div className="md:w-2/5">
         <img src={`${image}`} />
       </div>
       <div className="p-2 md:p-8">
-        <div className="text-center">
+        <div className="text-center md:text-left">
           <div className="text-blue-700 text-3xl">{title}</div>
           <div className=" text-xl font-bold mt-1">₹{price}</div>
           <div className="flex flex-row justify-center mt-8">
