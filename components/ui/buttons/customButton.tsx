@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ButtonProps {
-  title: string;
+  title?: string;
   handleClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -15,12 +15,16 @@ const CustomButton: React.FC<ButtonProps> = ({
       onClick={(e) => {
         handleClick(e);
       }}
-      className="rounded-md flex text-xs flex-row bg-yellow-300 p-2"
+      className="rounded-md flex text-xs flex-row bg-yellow-300 p-1 md:p-2"
     >
       {children}
-      <a href="@" className="ml-1 md:ml-1.5 font-bold text-gray-700">
-        {title}
-      </a>
+      {title ? (
+        <a href="@" className="ml-1 md:ml-1.5 font-bold text-gray-700">
+          {title}
+        </a>
+      ) : (
+        <></>
+      )}
     </button>
   );
 };

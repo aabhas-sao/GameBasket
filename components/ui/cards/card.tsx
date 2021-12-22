@@ -5,6 +5,7 @@ export interface CardType {
   image?: string;
   title?: string;
   description?: string;
+  price?: number;
 }
 
 const Card: React.FC<CardType> = ({ image, title, description, children }) => {

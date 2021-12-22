@@ -7,7 +7,7 @@ const CartList = () => {
   const { items } = useSelector((state: RootState) => state.cart);
   console.log(items);
   return (
-    <div className="p-4 md:p-12 grid md:grid-cols-4 justify-center justify-items-center gap-6">
+    <div className=" md:p-12 grid w-full gap-2">
       {items.map((item, idx) => (
         <CartItem key={idx} details={item} />
       ))}
