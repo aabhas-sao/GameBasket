@@ -49,8 +49,8 @@ export const cartSlice = createSlice({
         },
         addItem: (state, action) => {
             const id = state.items.filter(item => item.product.id === action.payload.item.id);
-            console.log(id);
-            if (id.length >= 1) return;
+            if (id.length == 1) return;
+
             state.count += 1;
             state.items.push({ count: 1, product: action.payload.item });
         }

@@ -10,9 +10,15 @@ interface Props {
   specs?: any;
 }
 
-const ProductDetails: React.FC<Props> = ({ image, title, price, specs }) => {
+const ProductDetails: React.FC<Props> = ({
+  id,
+  image,
+  title,
+  price,
+  specs,
+}) => {
   console.log(specs);
-  const product = { id: 1, image, price, specs };
+  const product = { id, image, price, specs };
   return (
     <article className="w-10/12 mx-auto card flex flex-col md:flex-row">
       <div className="md:w-2/5">
