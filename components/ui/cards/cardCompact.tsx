@@ -12,7 +12,7 @@ const CardCompact: React.FC<CardType> = ({
 }) => {
   return (
     <CardContainer>
-      <div className="flex flex-row min-w-full p-1 overflow-hidden w-100">
+      <div className="flex flex-row min-w-full p-1 items-center justify-between overflow-hidden w-100">
         {image ? (
           <div className="w-24">
             {" "}

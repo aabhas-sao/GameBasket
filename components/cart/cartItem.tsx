@@ -38,12 +38,12 @@ const CartItem: React.FC<{ details: any; count: number }> = ({
         <Spacer px={2} />
         <CustomButton
           bgColor="bg-red-600"
+          title="Delete"
+          color="text-white"
           handleClick={() => {
             dispatch(removeItem({ id: details.id }));
           }}
-        >
-          <TrashIcon className="w-4" />
-        </CustomButton>
+        />
       </div>
     </CardCompact>
   );

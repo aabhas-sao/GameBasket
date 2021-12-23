@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import CustomButton from "../ui/buttons/customButton";
+import Spacer from "../ui/spacer";
 
 interface ProductListProps {
   subcategory: string;
@@ -41,10 +42,11 @@ const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:flex flex-col justify-around">
+            <div className="hidden md:flex flex-col justify-center">
               <div className="text-lg md:text-2xl font-bold">
                 ₹{product.price}
               </div>
+              <Spacer px={1} />
               <CustomButton handleClick={() => {}} title="add to cart" />
             </div>
           </article>
