@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import CustomButton from "../ui/buttons/customButton";
 import InputField from "../ui/input";
 import Spacer from "../ui/spacer";
-import CustomButton from "../ui/customButton";
 
 interface Props {
   items: { [index: string]: string };

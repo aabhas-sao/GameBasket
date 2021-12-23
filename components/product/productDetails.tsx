@@ -4,6 +4,7 @@ import Buy from "../ui/buttons/buy";
 import Spacer from "../ui/spacer";
 
 interface Props {
+  id: number;
   image: string;
   title: string;
   price: number;
