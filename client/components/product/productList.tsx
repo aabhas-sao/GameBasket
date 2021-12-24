@@ -11,9 +11,9 @@ interface ProductListProps {
 const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
   return (
     <div className="container filler">
-      <h1 className="text-center gray-700 text-xl my-4 md:my-8 md:text-2xl font-bold">
+      {/* <h1 className="text-center gray-700 text-xl my-4 md:my-8 md:text-2xl font-bold">
         Showing results for {subcategory}
-      </h1>
+      </h1> */}
       <div className="divide-y divide-gray-300">
         {products.map((product) => (
           <article

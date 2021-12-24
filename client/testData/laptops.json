@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Razer Blade 15",
+    "image": "https://www.pngkey.com/png/full/461-4619100_image-razer-razer-blade-15-mercury-white.png",
+    "price": 70000,
+    "category": "electronics",
+    "subcategory": "laptops"
+  },
+  {
+    "id": 2,
+    "title": "Alienware Area 51",
+    "image": "https://p.kindpng.com/picc/s/415-4154289_alienware-area-51m-alienware-area-51m-png-transparent.png",
+    "price": 130000,
+    "category": "electronics",
+    "subcategory": "smartphones",
+    "specs": {
+      "ram": "4 gb"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Alienware 15R6",
+    "image": "https://storage-asset.msi.com/global/picture/image/feature/nb/2020_CML/GE/GE66/pd_ge66.png",
+    "price": 230000,
+    "category": "electronics",
+    "subcategory": "laptops"
+  },
+  {
+    "id": 4,
+    "title": "ASUS Zephyrus 15",
+    "image": "https://dlcdnwebimgs.asus.com/gain/3E447A6F-8B87-4C5F-BD7D-50A440327841",
+    "price": 130000,
+    "category": "electronics",
+    "subcategory": "smartphones"
+  }
+]
