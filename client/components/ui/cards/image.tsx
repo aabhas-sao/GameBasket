@@ -2,8 +2,8 @@ import React from "react";
 
 const Image: React.FC<{ image: string }> = ({ image }) => {
   return (
-    <div className="w-100">
-      <img className="w-100" src={image} />
+    <div className="w-full h-full">
+      <img className="w-full h-full object-scale-down" src={image} />
     </div>
   );
 };
