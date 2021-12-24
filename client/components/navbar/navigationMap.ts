@@ -2,7 +2,7 @@ export const navigation = {
     categories: [
         {
             id: "electronics",
-            name: "Catalog",
+            name: "Menu",
             featured: [
                 {
                     name: "New Arrivals",

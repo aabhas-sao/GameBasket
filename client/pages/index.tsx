@@ -7,7 +7,7 @@ import SideScroll from "../components/sideScroll";
 
 const Index: React.FunctionComponent = () => {
   return (
-    <div>
+    <div className="bg-gray-200">
       {/* <Banner6 /> */}
       {/* <BuildPc /> */}
       <SideScroll />

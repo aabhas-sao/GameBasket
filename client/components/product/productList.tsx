@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import CustomButton from "../ui/buttons/customButton";
-import Spacer from "../ui/spacer";
+import Rating from "../rating";
+import AddToCart from "../ui/buttons/addToCart";
 
 interface ProductListProps {
   subcategory: string;
@@ -23,7 +23,7 @@ const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
             <div className="flex md:w-2/3 flex-row">
               <img className="w-20 md:w-32 " src={`${product.image}`} />
               <div className="w-2/3  flex text-sm flex-col ml-4 md:ml-8 flex-2">
-                <div className="text-xs my-auto ">
+                <div className="h-full text-xs flex flex-col justify-center">
                   <Link
                     href={{
                       pathname: "/product",
@@ -32,10 +32,11 @@ const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
                       },
                     }}
                   >
-                    <a className="text-blue-700">
+                    <a className="text-blue-700 mb-2">
                       <p className="line-clamp-2">{product.title}</p>
                     </a>
                   </Link>
+                  <Rating rating={3} />
                   <p className="md:hidden mt-1 text-sm font-medium">
                     ₹{product.price}
                   </p>
@@ -43,11 +44,10 @@ const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
               </div>
             </div>
             <div className="hidden md:flex flex-col justify-center">
-              <div className="text-lg md:text-2xl font-bold">
+              <div className="text-md md:text-lg text-gray-700 text-center font-bold mb-2">
                 ₹{product.price}
               </div>
-              <Spacer px={1} />
-              <CustomButton handleClick={() => {}} title="add to cart" />
+              <AddToCart item={product} />
             </div>
           </article>
         ))}

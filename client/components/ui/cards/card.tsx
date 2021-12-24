@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "./image";
+import Rating from "../../rating";
 
 export interface CardType {
   id?: number;
@@ -31,6 +32,8 @@ const Card: React.FC<CardType> = ({
         ) : (
           <h2 className="font-semibold text-blue-500 text-sm">{title}</h2>
         )}
+
+        <Rating rating={3} />
 
         <p className="text-sm font-bold text-gray-700">₹{price}</p>
         <p>{description}</p>

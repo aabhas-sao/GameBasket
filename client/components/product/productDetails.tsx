@@ -1,4 +1,5 @@
 import React from "react";
+import Rating from "../rating";
 import AddToCart from "../ui/buttons/addToCart";
 import Buy from "../ui/buttons/buy";
 import Spacer from "../ui/spacer";
@@ -27,7 +28,8 @@ const ProductDetails: React.FC<Props> = ({
       </div>
       <div className="p-2 md:p-8">
         <div className="text-center md:text-left">
-          <div className="text-blue-700 text-3xl">{title}</div>
+          <div className="text-blue-700 text-3xl mb-2">{title}</div>
+          <Rating rating={4} />
           <div className=" text-xl font-bold mt-1">₹{price}</div>
           <div className="flex flex-row justify-center mt-8">
             <Buy />
