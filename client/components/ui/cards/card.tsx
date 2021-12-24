@@ -8,12 +8,21 @@ export interface CardType {
   price?: number;
 }
 
-const Card: React.FC<CardType> = ({ image, title, description, children }) => {
+const Card: React.FC<CardType> = ({
+  image,
+  price,
+  title,
+  description,
+  children,
+}) => {
   return (
-    <div className=" bg-gray-400 md:max-w-lg">
+    <div className=" rounded-md bg-gray-200 md:max-w-lg">
       <div className="h-2/3">{image ? <Image image={image} /> : <></>}</div>
-      <h2>{title}</h2>
-      <p>{description}</p>
+      <div className="text-center">
+        <h2 className="font-semibold text-blue-500 text-sm">{title}</h2>
+        <p className="text-sm font-semibold">₹{price}</p>
+        <p>{description}</p>
+      </div>
       {children}
     </div>
   );
