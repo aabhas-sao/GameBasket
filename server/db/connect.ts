@@ -1,5 +1,7 @@
 
 import { createConnection } from 'typeorm';
+import { Product } from '../features/products/product.entity';
+import { User } from '../features/users/user.entity';
 import config from '../ormconfig.json';
 
 const connectDb = () => {
@@ -11,11 +13,13 @@ const connectDb = () => {
         password: "123",
         database: "gamebasket",
         synchronize: true,
+        logging: true,
         entities: [
-            __dirname + "features/**/*.entity{.ts, .js}"
+            Product, User
         ]
     }).then(connection => {
         // here you can start to work with your entities
+        connection.synchronize();
     }).catch(error => console.log(error));
 }
 

@@ -9,12 +9,13 @@ export class Product extends BaseEntity {
     title: string;
 
     @Column({
-        type: 'double',
         nullable: false
     })
     price: number;
 
-    @Column()
+    @Column({
+        default: ""
+    })
     image_link: string;
 
     @CreateDateColumn()
