@@ -5,6 +5,7 @@ import cors from 'cors';
 import productRouter from './features/products/product.router';
 
 const app: Application = express();
+const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
@@ -19,6 +20,6 @@ app.use('/', (req: Request, res: Response): void => {
 })
 
 
-app.listen(4000, () => {
+app.listen(PORT, () => {
     console.log('server is running on 4000');
 })
