@@ -18,7 +18,9 @@ export class Product extends BaseEntity {
     })
     image_link: string;
 
+    @Column()
+    category: string
+
     @CreateDateColumn()
     created_at
-
 }
