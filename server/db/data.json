@@ -5,7 +5,7 @@
     "price": 126673.89,
     "brand": "Lenovo",
     "subBrand": "Legion",
-    "category": "pc"
+    "category": "desktops"
   },
   {
     "title": "CORSAIR - VENGEANCE a7200 Series Gaming Desktop - AMD Ryzen 5 5600X - 16GB Memory - NVIDIA GeForce RTX 3060 Ti - 1 TB SSD - Black    ",
@@ -13,7 +13,7 @@
     "price": 149027.35,
     "brand": "Corsair",
     "subBrand": "Vengeance",
-    "category": "pc"
+    "category": "desktops"
   },
   {
     "title": "Alienware - Aurora R12 Gaming Desktop - Intel Core i9-11900KF - 32GB Memory - NVIDIA GeForce RTX 3080 - 1TB SSD - Lunar Light    ",
@@ -21,7 +21,7 @@
     "price": 208638.59,
     "brand": "DELL",
     "subBrand": "Alienware",
-    "category": "pc"
+    "category": "desktops"
   },
   {
     "title": "HP OMEN - Gaming Desktop - AMD Ryzen 7 5700G - 16GB HyperX Memory - AMD Radeon™ RX 6700XT - 1TB SSD - Jet Black",
@@ -29,7 +29,7 @@
     "price": 117731.45,
     "brand": "Hp",
     "subBrand": "Omen",
-    "category": "pc"
+    "category": "desktops"
   },
   {
     "title": "Razer - Blade 15 Advanced - 15.6\" Gaming Laptop - FHD-360HZ - Intel Core i7 - NVIDIA GeForce RTX 3080 - 32GB RAM - 1TB SSD - Black",

@@ -7,8 +7,6 @@ const getProductsByCategory = async (category: string) => {
         }
     })
 
-    console.log(products);
-
     return products;
 }
 
