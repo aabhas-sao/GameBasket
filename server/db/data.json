@@ -73,19 +73,19 @@
   },
   {
     "title": "Sony - PlayStation 5 Console",
-    "image": "",
+    "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426149_sd.jpg;maxHeight=640;maxWidth=550",
     "price": 37256.28,
     "brand": "Sony",
     "subBrand": "PlayStation",
-    "category": "gaming consoles"
+    "category": "gaming-consoles"
   },
   {
     "title": "Nintendo Switch – OLED Model w/ White Joy-Con - White",
-    "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6426/6426149_sd.jpg;maxHeight=640;maxWidth=550",
+    "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6470/6470923_sd.jpg;maxHeight=640;maxWidth=550",
     "price": 37256.28,
     "brand": "Nintendo",
     "subBrand": "Switch",
-    "category": "gaming consoles"
+    "category": "gaming-consoles"
   },
   {
     "title": "Microsoft - Xbox Series X - Halo Infinite Limited Edition - Black",
@@ -93,7 +93,7 @@
     "price": 40981.98,
     "brand": "Microsoft",
     "subBrand": "Xbox",
-    "category": "gaming consoles"
+    "category": "gaming-consoles"
   },
   {
     "title": "Microsoft - Xbox Series X 1TB Console - Black",
@@ -101,7 +101,7 @@
     "price": 37256.28,
     "brand": "Microsoft",
     "subBrand": "Xbox",
-    "category": "gaming consoles"
+    "category": "gaming-consoles"
   },
   {
     "title": "Apple - iPhone 13 Pro 5G 1TB - Pink (Verizon)",
@@ -113,7 +113,7 @@
   },
   {
     "title": "Google - Pixel 6 Pro 128GB (Unlocked) - Stormy Black",
-    "image": "https://www.bestbuy.com/site/google-pixel-6-pro-128gb-unlocked-stormy-black/6483636.p?skuId=6483636",
+    "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6483/6483636_sd.jpg;maxHeight=640;maxWidth=550",
     "price": 66988.13,
     "brand": "Google",
     "subBrand": "Pixel",

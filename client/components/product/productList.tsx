@@ -21,7 +21,7 @@ const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
             key={product.id}
           >
             <div className="flex md:w-2/3 flex-row">
-              <img className="w-20 md:w-32 " src={`${product.image}`} />
+              <img className="w-20 md:w-32 " src={`${product.image_link}`} />
               <div className="w-2/3  flex text-sm flex-col ml-4 md:ml-8 flex-2">
                 <div className="h-full text-xs flex flex-col justify-center">
                   <Link
