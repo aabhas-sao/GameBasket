@@ -18,6 +18,16 @@ export class Product extends BaseEntity {
     })
     image_link: string;
 
+    @Column({
+        default: ""
+    })
+    brand: string;
+
+    @Column({
+        default: ""
+    })
+    sub_brand: ""
+
     @Column()
     category: string
 
