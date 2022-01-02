@@ -9,7 +9,10 @@ export class Product extends BaseEntity {
     title: string;
 
     @Column({
-        nullable: false
+        nullable: false,
+        type: "numeric",
+        precision: 15,
+        scale: 2
     })
     price: number;
 
