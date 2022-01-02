@@ -3,6 +3,6 @@ export const subcategoryEnum: string[] = [
     'smartphones',
     'handhelds',
     'desktops',
-    'gaming-consoles',
+    'gaming consoles',
     'handhelds',
 ]
