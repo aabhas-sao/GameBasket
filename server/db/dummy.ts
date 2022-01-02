@@ -9,7 +9,9 @@ const dummyDataCreator = () => {
             title: item.title,
             image_link: item.image,
             category: item.category,
-            price: item.price
+            price: item.price,
+            brand: item.brand,
+            sub_brand: item.subBrand
         });
     })
 }

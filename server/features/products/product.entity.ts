@@ -26,7 +26,7 @@ export class Product extends BaseEntity {
     @Column({
         default: ""
     })
-    sub_brand: ""
+    sub_brand: string
 
     @Column()
     category: string

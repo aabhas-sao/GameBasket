@@ -28,7 +28,6 @@ export const navigation = {
                     items: [
                         { name: "Laptops", href: "/products/laptops" },
                         { name: "Gaming Consoles", href: "/products/gaming-consoles" },
-                        { name: "Handhelds", href: "/products/handhelds" },
                         { name: "Desktops", href: "/products/desktops" },
                         { name: "Smartphones", href: "/products/smartphones" },
                         // { name: "T-Shirts", href: "#" },

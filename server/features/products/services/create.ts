@@ -5,14 +5,18 @@ type ProductType = {
     image_link: string;
     price: number;
     category: string;
+    brand: string;
+    sub_brand: string;
 }
 
-const createProduct = async ({ title, image_link, price, category }: ProductType) => {
+const createProduct = async ({ title, image_link, price, category, brand, sub_brand }: ProductType) => {
     await Product.create({
         title,
         image_link,
         price,
-        category
+        category,
+        brand,
+        sub_brand,
     }).save();
 }
 
