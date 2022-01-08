@@ -20,8 +20,10 @@ const connectDb = () => {
         ]
     }).then(connection => {
         // here you can start to work with your entities
-        connection.synchronize();
-        dummyDataCreator();
+        connection.synchronize(true).then(() => {
+            dummyDataCreator();
+        })
+
     }).catch(error => console.log(error));
 }
 
