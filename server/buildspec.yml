@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+  pre_build:
+    commands:
+      - echo install yarn
+      - cd server
+      - npm i -g yarn ts-node typescript
+      - yarn
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - yarn start
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - app.ts
+    - db
+    - features
+    - package.json
+    - yarn.lock
+    - node_modules

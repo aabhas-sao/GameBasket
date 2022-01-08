@@ -11,13 +11,17 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
-createConnection();
+// createConnection();
 
-app.use('/products', productRouter)
-
-app.use('/', (req: Request, res: Response): void => {
+app.use('/hello', (req, res) => {
     res.send("hello");
 })
+
+// app.use('/products', productRouter)
+
+// app.use('/', (req: Request, res: Response): void => {
+//     res.send("hello");
+// })
 
 
 app.listen(PORT, () => {
