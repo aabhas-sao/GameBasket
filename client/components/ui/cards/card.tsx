@@ -9,23 +9,27 @@ export interface CardType {
   title?: string;
   description?: string;
   price?: number;
+  imgSize: string;
 }
 
 const Card: React.FC<CardType> = ({
   id,
   image,
+  imgSize,
   price,
   title,
   description,
   children,
 }) => {
   return (
-    <div className=" rounded-md bg-white md:max-w-lg h-64">
-      <div className="h-2/3">{image ? <Image image={image} /> : <></>}</div>
-      <div className="text-left pl-3">
+    <div className=" rounded-md bg-white md:max-w-lg">
+      <div className={imgSize ? imgSize : "h-2/3"}>
+        {image ? <Image image={image} /> : <></>}
+      </div>
+      <div className="text-left pl-3 mt-2">
         {id ? (
           <Link href={`/products/${id}`}>
-            <h2 className="font-semibold text-blue-500 text-sm cursor-pointer">
+            <h2 className="font-semibold text-blue-500 text-sm cursor-pointer line-clamp-1">
               {title}
             </h2>
           </Link>

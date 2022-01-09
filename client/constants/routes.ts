@@ -1,3 +1,3 @@
-const baseUrl = 'http://localhost:4000';
+const baseUrl = process.env.NODE_ENV === "production" ? "https://gamebasket.herokuapp.com" : 'http://localhost:4000';
 
 export default baseUrl;

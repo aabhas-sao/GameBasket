@@ -1,17 +1,31 @@
-import React from "react";
-import dummy from "../../testData/products.json";
-import laptops from "../../testData/laptops.json";
+import React, { useEffect, useState } from "react";
 import ShowcaseContainer from "./showcaseContainer";
-
-const products = dummy.slice(0, 4);
+import baseUrl from "../../constants/routes";
+import axios from "axios";
 
 const ShowcaseCluster = () => {
+  const [laptops, setLaptops] = useState<any[]>([]);
+  const [desktops, setDesktops] = useState<any[]>([]);
+  const [smartphones, setSmartphones] = useState<any[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const laptopRes = await axios.get(`${baseUrl}/products/laptops`);
+      const desktopRes = await axios.get(`${baseUrl}/products/desktops`);
+      const smartphoneRes = await axios.get(`${baseUrl}/products/smartphones`);
+      await Promise.all([laptopRes, desktopRes, smartphoneRes]);
+
+      setLaptops(laptopRes.data.slice(0, 4));
+      setDesktops(desktopRes.data.slice(0, 4));
+      setSmartphones(smartphoneRes.data.slice(0, 4));
+    })();
+  }, []);
+
   return (
-    <div className="grid grid-cols-1 justify-items-center gap-y-10 md:grid-cols-3">
+    <div className="md:w-10/12 mx-auto grid grid-cols-1 justify-items-center gap-y-10 lg:grid-cols-3">
       <ShowcaseContainer products={laptops} title="Laptops" />
-      <ShowcaseContainer products={products} title="Games" />
-      <ShowcaseContainer products={products} title="Controllers" />
-      <ShowcaseContainer products={products} title="PC" />
+      <ShowcaseContainer products={smartphones} title="Smartphones" />
+      <ShowcaseContainer products={desktops} title="Desktops" />
     </div>
   );
 };
