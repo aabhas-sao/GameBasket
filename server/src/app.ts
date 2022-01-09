@@ -14,12 +14,7 @@ app.use(express.urlencoded());
 
 createConnection();
 
-
-app.use('/hello', (req, res) => {
-    res.send("hello");
-})
-
-// app.use('/products', productRouter)
+app.use('/products', productRouter)
 
 app.use('/', (req: Request, res: Response): void => {
     res.send("hello");
