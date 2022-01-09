@@ -8,12 +8,16 @@ const connectDb = () => {
     createConnection({
         type: "postgres",
         url: process.env.DATABASE_URL,
-        ssl: true,
+        ssl: {
+            rejectUnauthorized: false
+        },
+        logging: false,
         entities: [
             Product, User
         ]
     }).then(connection => {
         console.log("connected to db");
+        connection.synchronize();
     }).catch(error => console.log(error));
 }
 
