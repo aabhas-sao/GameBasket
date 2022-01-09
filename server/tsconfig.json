@@ -9,6 +9,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "include": ["features/**/*.ts", "app.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }
