@@ -1,4 +1,5 @@
 {
+  "name": "gamebasket-client",
   "private": true,
   "scripts": {
     "dev": "next dev",

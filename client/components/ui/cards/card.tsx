@@ -9,7 +9,7 @@ export interface CardType {
   title?: string;
   description?: string;
   price?: number;
-  imgSize: string;
+  imgSize?: string;
 }
 
 const Card: React.FC<CardType> = ({
@@ -23,7 +23,7 @@ const Card: React.FC<CardType> = ({
 }) => {
   return (
     <div className=" rounded-md bg-white md:max-w-lg">
-      <div className={imgSize ? imgSize : "h-2/3"}>
+      <div className={imgSize ? `${imgSize} h-4/6` : "h-4/6"}>
         {image ? <Image image={image} /> : <></>}
       </div>
       <div className="text-left pl-3 mt-2">

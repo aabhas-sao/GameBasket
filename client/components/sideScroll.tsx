@@ -3,19 +3,23 @@ import React, { useState, useEffect } from "react";
 import baseUrl from "../constants/routes";
 // import { fetchDeals } from "../firebase/products/readProducts";
 import Card from "./ui/cards/card";
+import CardLoading from "./ui/cards/cardLoading";
 
 /**
  * Side wise scrollable product list
  * @return { React.ReactElement }
  */
 const SideScroll = (): React.ReactElement => {
-  const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState<bool>(true);
+  const [products, setProducts] = useState<any[]>([...Array(10).keys()]);
 
   useEffect(() => {
     axios.get(`${baseUrl}/products`).then((res) => {
       console.log(res.data);
+
       if (res.data.length !== products.length) {
         setProducts(res.data);
+        setLoading(false);
       }
     });
   });
@@ -35,9 +39,18 @@ const SideScroll = (): React.ReactElement => {
         </h2>
 
         <div className="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
-          {products.map((product, idx) => (
-            <Card key={idx} image={product.image_link} {...product} />
-          ))}
+          {loading
+            ? products.map((product, idx) => (
+                <CardLoading key={idx} imgSize="h-48" />
+              ))
+            : products.map((product, idx) => (
+                <Card
+                  key={idx}
+                  image={product.image_link}
+                  {...product}
+                  imgSize="h-3486"
+                />
+              ))}
         </div>
       </div>
     </div>
