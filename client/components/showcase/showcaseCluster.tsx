@@ -4,9 +4,9 @@ import baseUrl from "../../constants/routes";
 import axios from "axios";
 
 const ShowcaseCluster = () => {
-  const [laptops, setLaptops] = useState<any[]>([]);
-  const [desktops, setDesktops] = useState<any[]>([]);
-  const [smartphones, setSmartphones] = useState<any[]>([]);
+  const [laptops, setLaptops] = useState<any[]>([...Array(4).keys()]);
+  const [desktops, setDesktops] = useState<any[]>([...Array(4).keys()]);
+  const [smartphones, setSmartphones] = useState<any[]>([...Array(4).keys()]);
 
   useEffect(() => {
     (async () => {

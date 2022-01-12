@@ -8,7 +8,6 @@ router.get('/:category', categoryController);
 
 router.get('/', async (req, res) => {
     const products = await getAllProducts();
-    console.log(products);
     res.send(products);
 })
 
