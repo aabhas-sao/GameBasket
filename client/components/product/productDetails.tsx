@@ -22,8 +22,8 @@ const ProductDetails: React.FC<Props> = ({
   console.log(specs);
   const product = { id, image, price, specs };
   return (
-    <article className="w-10/12 mx-auto card flex flex-col md:flex-row">
-      <div className="md:w-2/5">
+    <article className="w-10/12 mx-auto card flex flex-col md:flex-row h-full">
+      <div className="w-2/5 h-36">
         <img src={`${image}`} />
       </div>
       <div className="p-2 md:p-8">

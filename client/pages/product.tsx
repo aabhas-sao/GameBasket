@@ -1,9 +1,9 @@
+import axios from "axios";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import ProductDetails from "../components/product/productDetails";
-// import { fetchProduct } from "../firebase/products/readProducts";
-import dummyData from "../testData/products.json";
+import baseUrl from "../constants/routes";
 
 // eslint-disable-next-line require-jsdoc
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -30,13 +30,14 @@ const ProductRoute: React.FC<Props> = () => {
     }
     const idStringOnly = id as string;
 
-    setProduct(dummyData[parseInt(idStringOnly) - 1]);
-    // fetchProduct(pid).then((res) => {
-    //   setProduct(res);
-    // });
+    (async () => {
+      const res = await axios.get(`${baseUrl}/products/?id=${idStringOnly}`);
+      console.log("Data", res.data);
+      setProduct(res.data);
+    })();
   }, [id]);
 
-  return <ProductDetails id={id} {...product} />;
+  return <ProductDetails id={id} image={product.image_link} {...product} />;
 };
 
 export default ProductRoute;

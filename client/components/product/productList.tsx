@@ -10,11 +10,11 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ subcategory, products }) => {
   return (
-    <div className="container filler">
+    <div className="container filler mx-auto">
       {/* <h1 className="text-center gray-700 text-xl my-4 md:my-8 md:text-2xl font-bold">
         Showing results for {subcategory}
       </h1> */}
-      <div className="divide-y divide-gray-300">
+      <div className="divide-y divide-gray-300 ">
         {products.map((product) => (
           <article
             className="flex mt-3 pt-4 flex-col md:flex-row p-2 md:p-4 md:w-4/5 mx-auto justify-evenly"

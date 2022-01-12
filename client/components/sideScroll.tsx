@@ -13,7 +13,7 @@ const SideScroll = (): React.ReactElement => {
 
   useEffect(() => {
     axios.get(`${baseUrl}/products`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
 
       if (res.data.length !== products.length) {
         setProducts(res.data);

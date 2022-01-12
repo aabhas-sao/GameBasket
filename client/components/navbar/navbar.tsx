@@ -10,7 +10,7 @@ export default function Example() {
   const [displayName, setDisplayName] = useState<string | null>("");
 
   onAuthStateChanged(auth, (user) => {
-    console.log(user?.email);
+    // console.log(user?.email);
     if (user) {
       if (user.displayName) setDisplayName(user.displayName);
     } else {

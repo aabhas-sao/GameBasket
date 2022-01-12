@@ -18,7 +18,6 @@ const ProductDynamicPage = () => {
     (async () => {
       console.log(subcategory);
       const productsRes = await axios.get(`${baseUrl}/products/${subcategory}`);
-      console.log(productsRes.data);
       setProducts(productsRes.data);
     })();
   }, [pid]);

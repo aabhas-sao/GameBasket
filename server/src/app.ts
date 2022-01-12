@@ -12,7 +12,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
-createConnection();
 
 app.use('/products', productRouter)
 
@@ -20,7 +19,9 @@ app.use('/', (req: Request, res: Response): void => {
     res.send("hello");
 })
 
+createConnection().then(() => {
+    app.listen(PORT, () => {
+        console.log(`server is running on ${PORT}`);
 
-app.listen(PORT, () => {
-    console.log(`server is running on ${PORT}`);
+    })
 })

@@ -38,7 +38,14 @@ const Card: React.FC<CardType> = ({
             <div />
           )}
           {id ? (
-            <Link href={`/products/${id}`}>
+            <Link
+              href={{
+                pathname: "/product",
+                query: {
+                  id,
+                },
+              }}
+            >
               <h2 className="font-semibold text-blue-500 text-sm cursor-pointer line-clamp-1">
                 {title}
               </h2>

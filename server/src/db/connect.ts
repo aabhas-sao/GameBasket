@@ -5,7 +5,7 @@ import { User } from '../features/users/user.entity';
 import dummyDataCreator from './dummy';
 
 const connectDb = () => {
-    createConnection({
+    return createConnection({
         type: "postgres",
         url: process.env.DATABASE_URL,
         ssl: {
@@ -15,10 +15,7 @@ const connectDb = () => {
         entities: [
             Product, User
         ]
-    }).then(connection => {
-        console.log("connected to db");
-        connection.synchronize();
-    }).catch(error => console.log(error));
+    })
 }
 
 export default connectDb;

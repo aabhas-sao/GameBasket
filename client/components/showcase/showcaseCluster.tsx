@@ -22,7 +22,7 @@ const ShowcaseCluster = () => {
   }, []);
 
   return (
-    <div className="md:w-10/12 mx-auto grid grid-cols-1 justify-items-center gap-y-10 lg:grid-cols-3">
+    <div className="md:w-10/12 mx-auto md:pb-24 grid grid-cols-1 justify-items-center gap-y-10 lg:grid-cols-3">
       <ShowcaseContainer products={laptops} title="Laptops" />
       <ShowcaseContainer products={smartphones} title="Smartphones" />
       <ShowcaseContainer products={desktops} title="Desktops" />

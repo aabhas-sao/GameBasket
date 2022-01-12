@@ -6,7 +6,7 @@ import SideScroll from "../components/sideScroll";
 
 const Index: React.FunctionComponent = () => {
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-200 min-h-full">
       <SideScroll />
       {/* <CarouselContainer /> */}
       <ShowcaseCluster />
