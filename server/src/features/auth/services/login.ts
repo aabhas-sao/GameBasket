@@ -1,15 +1,21 @@
 import { User } from "../../users/user.entity"
 import bcrypt from 'bcrypt'
+import { ERROR, SUCCESS } from "./constants";
 
-const login = async (username, password) => {
-  const user = await User.findOne(username);
-  console.log(user);
-  // if (user) {
-  //   if (await bcrypt.compare(password, );
-  //   return true;
-  // }
+const login = async (email, password) => {
+  const user = await User.find({ where: { email } });
 
-  // return false;
+  try {
+    if (user.length === 1) {
+      if (await bcrypt.compare(password, user[0].hash)) {
+        return SUCCESS;
+      } else {
+        return "INCORRECT_PASSWORD";
+      }
+    }
+  } catch {
+    return ERROR;
+  }
 }
 
 export default login;
