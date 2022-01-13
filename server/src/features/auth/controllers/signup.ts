@@ -3,6 +3,7 @@ import signup from "../services/signup";
 
 const signupController = async (req: Request, res: Response) => {
   const { firstName, lastName, email, password } = req.body;
+  console.log(firstName, email, password)
   const success = await signup(firstName, lastName, email, password);
 
   switch (success) {

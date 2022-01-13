@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { register } from "../../firebase/authServices";
-import { updateProfile } from "@firebase/auth";
-import { auth } from "../../firebase/firebase";
+import signup from "../../functions/signup";
+import { useRouter } from "next/router";
 
 // eslint-disable-next-line require-jsdoc
 export default function Signup() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [name, setName] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await register(email, password);
-    try {
-      await updateProfile(auth.currentUser!, {
-        displayName: name,
-      });
-    } catch (e) {
-      console.log("error updating display name");
+    if (password === confirmPassword) {
+      const res = await signup(email, firstName, lastName, password);
+
+      if (res.status === 201) {
+        router.push("/auth/signin");
+      }
     }
   };
 
@@ -69,12 +70,29 @@ export default function Signup() {
                   id="name"
                   name="name"
                   type="name"
-                  autoComplete="name"
+                  autoComplete="given-name"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Name"
+                  placeholder="First Name"
                   onChange={(e) => {
-                    setName(e.target.value);
+                    setFirstName(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <label htmlFor="name" className="sr-only">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="name"
+                  autoComplete="family-name"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Last Name"
+                  onChange={(e) => {
+                    setLastName(e.target.value);
                   }}
                 />
               </div>
@@ -109,6 +127,23 @@ export default function Signup() {
                   placeholder="Password"
                   onChange={(e) => {
                     setPassword(e.target.value);
+                  }}
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="sr-only">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  autoComplete="current-password"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  placeholder="Password"
+                  onChange={(e) => {
+                    setConfirmPassword(e.target.value);
                   }}
                 />
               </div>

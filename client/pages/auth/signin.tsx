@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
-import { login } from "../../firebase/authServices";
+import signin from "../../functions/signin";
+import { useRouter } from "next/router";
 
 // eslint-disable-next-line require-jsdoc
 export default function Example() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const router = useRouter();
+
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await login(email, password);
+    const res = await signin(email, password);
+    if (res === "SUCCESS") {
+      router.push("/");
+    }
   };
 
   return (

@@ -12,6 +12,8 @@ const login = async (email, password) => {
       } else {
         return "INCORRECT_PASSWORD";
       }
+    } else {
+      return "NO_USER_FOUND";
     }
   } catch {
     return ERROR;

@@ -4,7 +4,7 @@ import authRouter from './auth/auth.router'
 import authenticateToken from './auth/middleware/authenticateToken';
 const router = Router();
 
-router.use('/products', authenticateToken, productRouter);
+router.use('/products', productRouter);
 router.use('/auth', authRouter);
 
 export default router;
