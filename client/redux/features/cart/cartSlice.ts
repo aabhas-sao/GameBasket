@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
-import products from "../../../testData/products.json";
+// import products from "../../../testData/products.json";
 
 type CounterState = {
     count: number;
     items: any[];
 }
 
-const cartItems = products.map(product => ({
-    count: 1,
-    product
-}))
+// const cartItems = products.map(product => ({
+//     count: 1,
+//     product
+// }))
 
 const initialState: CounterState = {
-    count: cartItems.length,
-    items: cartItems
+    count: 0,
+    items: []
 }
 
 export const cartSlice = createSlice({

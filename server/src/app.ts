@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import createConnection from './db/connect';
 import cors from 'cors';
 require('dotenv').config();
-import productRouter from './features/products/product.router';
+import indexRouter from './features/';
 
 const app: Application = express();
 const PORT = process.env.PORT || 4000;
@@ -13,15 +13,11 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 
-app.use('/products', productRouter)
+app.use('/', indexRouter);
 
-app.use('/', (req: Request, res: Response): void => {
-    res.send("hello");
-})
-
-createConnection().then(() => {
+createConnection().then((con) => {
+    con.synchronize();
     app.listen(PORT, () => {
         console.log(`server is running on ${PORT}`);
-
     })
 })
