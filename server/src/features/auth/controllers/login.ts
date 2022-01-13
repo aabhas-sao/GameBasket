@@ -10,9 +10,11 @@ const loginController = async (req: Request, res: Response) => {
   switch (success) {
     case SUCCESS:
       const user = { email: email };
-      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30d' });
 
-      res.status(201).json({ accessToken: accessToken });
+      res.status(200).cookie("jwt", accessToken, {
+        httpOnly: true
+      }).send('login succesfull');
       break;
     case INCORRECT_PASSWORD:
       res.status(401).send("incorrect password")
