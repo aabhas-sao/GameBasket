@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { INCORRECT_PASSWORD, SUCCESS } from "../services/constants";
 import login from "../services/login";
+import jwt from 'jsonwebtoken';
 
 const loginController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
@@ -8,7 +9,10 @@ const loginController = async (req: Request, res: Response) => {
 
   switch (success) {
     case SUCCESS:
-      res.status(201).send("logged in succesfully");
+      const user = { email: email };
+      const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET);
+
+      res.status(201).json({ accessToken: accessToken });
       break;
     case INCORRECT_PASSWORD:
       res.status(401).send("incorrect password")
