@@ -2,11 +2,12 @@ import React, { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { MenuIcon } from "@heroicons/react/outline";
-import { auth } from "../../firebase/firebase";
-import { signOut } from "firebase/auth";
 import Cart from "./cart";
 import { navigation } from "./navigationMap";
 import { classNames } from "./classnames";
+import signout from "../../functions/signout";
+import { logout } from "../../redux/features/userSlice";
+import { useDispatch } from "react-redux";
 
 interface PropsType {
   open: boolean;
@@ -15,6 +16,7 @@ interface PropsType {
 }
 
 const Desktop: React.FC<PropsType> = ({ open, setOpen, displayName }) => {
+  const dispatch = useDispatch();
   return (
     <header className="relative bg-white">
       <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
@@ -165,7 +167,9 @@ const Desktop: React.FC<PropsType> = ({ open, setOpen, displayName }) => {
                   <h1 className="p-1">{displayName}</h1>
                   <button
                     onClick={() => {
-                      signOut(auth);
+                      console.log("signout");
+                      dispatch(logout({}));
+                      signout();
                     }}
                     className="p-1 hidden lg:inline text-blue-700"
                   >

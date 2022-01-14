@@ -13,6 +13,8 @@ export default function Example() {
   useEffect(() => {
     if (user.uid !== null) {
       setDisplayName(user.firstName + " " + user.lastName);
+    } else {
+      setDisplayName("");
     }
   }, [user]);
 
