@@ -1,6 +1,7 @@
 
 import e from 'express';
 import { createConnection } from 'typeorm';
+import { CartItem } from '../features/cart/cartiIem.entity';
 import { Product } from '../features/products/product.entity';
 import { User } from '../features/users/user.entity';
 
@@ -27,7 +28,7 @@ const connectDb = () => {
             logging: true,
             database: "gamebasket",
             entities: [
-                Product, User
+                Product, User, CartItem
             ]
         })
     }

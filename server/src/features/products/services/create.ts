@@ -1,3 +1,5 @@
+import { getConnection } from "typeorm";
+import { CartItem } from "../../cart/cartiIem.entity";
 import { Product } from "../product.entity";
 
 type ProductType = {
@@ -10,7 +12,9 @@ type ProductType = {
 }
 
 const createProduct = async ({ title, image_link, price, category, brand, sub_brand }: ProductType) => {
-    await Product.create({
+    const connection = getConnection();
+
+    const product = await Product.create({
         title,
         image_link,
         price,
@@ -18,6 +22,11 @@ const createProduct = async ({ title, image_link, price, category, brand, sub_br
         brand,
         sub_brand,
     }).save();
+
+    const cartItem = new CartItem();
+    cartItem.product = product;
+    cartItem.inventory = Math.floor(Math.random() * 99) + 1;
+    await connection.manager.save(cartItem);
 }
 
 export default createProduct;
