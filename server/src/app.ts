@@ -6,6 +6,7 @@ import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
 import indexRouter from './features/';
+import dummyDataCreator from './db/dummy';
 
 const app: Application = express();
 const PORT = process.env.PORT || 4000;

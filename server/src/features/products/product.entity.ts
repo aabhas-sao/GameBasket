@@ -1,4 +1,5 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { CartItem } from "../cart/cartiIem.entity";
 
 @Entity()
 export class Product extends BaseEntity {
@@ -36,4 +37,7 @@ export class Product extends BaseEntity {
 
     @CreateDateColumn()
     created_at
+
+    @OneToMany(() => CartItem, cart => cart.product)
+    userConnection: Promise<CartItem[]>
 }

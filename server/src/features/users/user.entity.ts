@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Index, ManyToMany, JoinTable } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Index, OneToMany } from "typeorm";
 import { CartItem } from "../cart/cartiIem.entity";
 
 @Entity()
@@ -24,7 +24,6 @@ export class User extends BaseEntity {
     @Column({ nullable: true })
     address: string
 
-    @ManyToMany(() => CartItem)
-    @JoinTable()
-    cart: CartItem[]
+    @OneToMany(() => CartItem, cart => cart.user)
+    productConnection: Promise<User[]>;
 }

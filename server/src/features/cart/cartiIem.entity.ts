@@ -1,15 +1,27 @@
-import { BaseEntity, Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, Index, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, PrimaryGeneratedColumn, Unique } from "typeorm";
 import { Product } from "../products/product.entity";
+import { User } from "../users/user.entity";
 
 @Entity()
+@Index(['productId', 'userId'], { unique: true })
 export class CartItem extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ default: 0 })
-  inventory: number;
+  @PrimaryColumn()
+  productId: number;
 
-  @OneToOne(() => Product)
-  @JoinColumn()
+  @PrimaryColumn()
+  userId: number;
+
+  @Column({ default: 0 })
+  count: number;
+
+  @ManyToOne(() => Product, product => product.userConnection)
+  @JoinColumn({ name: "productId" })
   product: Product
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "userId" })
+  user: User
 }
