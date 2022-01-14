@@ -5,16 +5,13 @@ import { User } from "../users/user.entity";
 @Entity()
 @Index(['productId', 'userId'], { unique: true })
 export class CartItem extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
-
   @PrimaryColumn()
   productId: number;
 
   @PrimaryColumn()
   userId: number;
 
-  @Column({ default: 0 })
+  @Column({ default: 1 })
   count: number;
 
   @ManyToOne(() => Product, product => product.userConnection)
