@@ -2,18 +2,33 @@ import React, { useState } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import signin from "../../functions/signin";
 import { useRouter } from "next/router";
+import { login } from "../../redux/features/userSlice";
+import { useDispatch } from "react-redux";
 
 // eslint-disable-next-line require-jsdoc
 export default function Example() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const dispatch = useDispatch();
 
   const router = useRouter();
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await signin(email, password);
-    if (res === "SUCCESS") {
+    if (res) {
+      // eslint-disable-next-line camelcase
+      const { email, first_name, last_name, id, address } = res;
+      const payload = {
+        email,
+        firstName: first_name,
+        lastName: last_name,
+        uid: id,
+        address,
+      };
+
+      console.log(res, payload);
+      dispatch(login(payload));
       router.push("/");
     }
   };

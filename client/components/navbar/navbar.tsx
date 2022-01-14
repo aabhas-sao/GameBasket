@@ -1,22 +1,20 @@
 /* eslint-disable require-jsdoc */
-import React, { useState } from "react";
-import { onAuthStateChanged } from "@firebase/auth";
-import { auth } from "../../firebase/firebase";
+import React, { useState, useEffect } from "react";
 import Mobile from "./mobile";
 import Desktop from "./desktop";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
 
 export default function Example() {
   const [open, setOpen] = useState(false);
   const [displayName, setDisplayName] = useState<string | null>("");
+  const user = useSelector((state: RootState) => state.user);
 
-  onAuthStateChanged(auth, (user) => {
-    // console.log(user?.email);
-    if (user) {
-      if (user.displayName) setDisplayName(user.displayName);
-    } else {
-      setDisplayName("");
+  useEffect(() => {
+    if (user.uid !== null) {
+      setDisplayName(user.firstName + " " + user.lastName);
     }
-  });
+  }, [user]);
 
   return (
     <div className="bg-white">

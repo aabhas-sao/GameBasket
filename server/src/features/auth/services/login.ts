@@ -8,15 +8,15 @@ const login = async (email, password) => {
   try {
     if (user.length === 1) {
       if (await bcrypt.compare(password, user[0].hash)) {
-        return SUCCESS;
+        return { message: SUCCESS, data: user[0] };
       } else {
-        return "INCORRECT_PASSWORD";
+        return { message: "INCORRECT_PASSWORD" };
       }
     } else {
-      return "NO_USER_FOUND";
+      return { message: "NO_USER_FOUND" };
     }
   } catch {
-    return ERROR;
+    return { message: ERROR };
   }
 }
 

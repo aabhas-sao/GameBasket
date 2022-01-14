@@ -7,15 +7,20 @@ const loginController = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const success = await login(email, password);
 
-  switch (success) {
+  switch (success.message) {
     case SUCCESS:
-      const user = { email: email };
-      let accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30d' });
+      const user = success.data;
+      const email = user.email;
+
+      let accessToken = jwt.sign({ email: email }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30d' });
       accessToken = `BEARER ${accessToken}`;
 
-      res.status(201).cookie("jwt", accessToken, {
+      res.status(200).cookie("jwt", accessToken, {
         httpOnly: true
-      }).send('login succesfull');
+      }).json({
+        message: "login succesful",
+        ...user
+      });
       break;
     case INCORRECT_PASSWORD:
       res.status(401).send("incorrect password")
