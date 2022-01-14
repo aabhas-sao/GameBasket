@@ -40,7 +40,7 @@ const Card: React.FC<CardType> = ({
           {id ? (
             <Link
               href={{
-                pathname: "/product",
+                pathname: "product",
                 query: {
                   id,
                 },

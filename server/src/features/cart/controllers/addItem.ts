@@ -14,7 +14,6 @@ const addItemController = async (req: Request, res: Response) => {
     default:
       return res.sendStatus(500);
   }
-
 }
 
 export default addItemController;

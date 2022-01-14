@@ -19,7 +19,6 @@ const ProductDetails: React.FC<Props> = ({
   price,
   specs,
 }) => {
-  console.log(specs);
   const product = { id, image, price, specs };
   return (
     <article className="w-10/12 mx-auto card flex flex-col md:flex-row h-full">

@@ -25,7 +25,7 @@ const ProductRoute: React.FC<Props> = () => {
   const [product, setProduct] = useState<any>({});
 
   useEffect(() => {
-    if (!id) {
+    if (!router.isReady) {
       return;
     }
     const idStringOnly = id as string;
@@ -35,7 +35,7 @@ const ProductRoute: React.FC<Props> = () => {
       console.log("Data", res.data);
       setProduct(res.data);
     })();
-  }, [id]);
+  }, [router.isReady]);
 
   return <ProductDetails id={id} image={product.image_link} {...product} />;
 };
