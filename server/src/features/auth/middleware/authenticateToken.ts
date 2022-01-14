@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import { User } from "../../users/user.entity";
 
 const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers['authorization'] || req.cookies.jwt;
@@ -7,12 +8,14 @@ const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
 
   if (token === null) return res.sendStatus(401);
 
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, res) => {
     if (err) {
       return res.sendStatus(403);
     }
-    req['user'] = user;
-    console.log(user);
+
+    const user = await User.find({ where: { email: res.email } });
+
+    req['user'] = user[0];
     next();
   })
 }
