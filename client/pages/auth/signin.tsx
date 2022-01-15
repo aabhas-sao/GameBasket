@@ -4,6 +4,8 @@ import signin from "../../functions/signin";
 import { useRouter } from "next/router";
 import { login } from "../../redux/features/userSlice";
 import { useDispatch } from "react-redux";
+import getCart from "../../functions/cart";
+import { initialize } from "../../redux/features/cart/cartSlice";
 
 // eslint-disable-next-line require-jsdoc
 export default function Example() {
@@ -29,6 +31,11 @@ export default function Example() {
 
       console.log(res, payload);
       dispatch(login(payload));
+
+      const reduxItems = await getCart(id);
+
+      dispatch(initialize({ count: reduxItems.length, items: reduxItems }));
+
       router.push("/");
     }
   };

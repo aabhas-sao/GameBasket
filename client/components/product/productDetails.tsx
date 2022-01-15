@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Rating from "../rating";
 import AddToCart from "../ui/buttons/addToCart";
 import Buy from "../ui/buttons/buy";
@@ -20,10 +20,13 @@ const ProductDetails: React.FC<Props> = ({
   specs,
 }) => {
   const product = { id, image, price, specs, title };
+  useEffect(() => {
+    console.log(image);
+  }, []);
   return (
     <article className="w-10/12 mx-auto card flex flex-col md:flex-row h-full">
       <div className="w-2/5 h-36">
-        <img src={`${image}`} />
+        <img src={image} />
       </div>
       <div className="p-2 md:p-8">
         <div className="text-center md:text-left">

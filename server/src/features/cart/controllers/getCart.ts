@@ -6,10 +6,12 @@ import getcart from "../services/getcart";
 
 const getCartController = async (req: Request, res: Response) => {
   const connection = getConnection();
+  const { userId } = req.body;
   const items = await connection
     .getRepository(CartItem)
     .createQueryBuilder('cartItem')
     .leftJoinAndSelect('cartItem.product', 'p')
+    .where({ userId })
     .getMany();
 
   res.status(200).json({ data: items })

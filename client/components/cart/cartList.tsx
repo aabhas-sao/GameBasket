@@ -6,7 +6,7 @@ import CartItem from "./cartItem";
 const CartList = () => {
   const { items } = useSelector((state: RootState) => state.cart);
 
-  console.log(items);
+  // console.log(items);
 
   return (
     <div className=" md:p-12 grid w-full gap-2">

@@ -58,10 +58,14 @@ export const cartSlice = createSlice({
             const { count, items } = action.payload;
             state.count = count;
             state.items = items;
+        },
+        clear: (state, action) => {
+            state.count = 0;
+            state.items = [];
         }
     }
 })
 
-export const { increment, decrement, addItem, removeItem, initialize } = cartSlice.actions
+export const { increment, decrement, addItem, removeItem, initialize, clear } = cartSlice.actions
 
 export default cartSlice.reducer

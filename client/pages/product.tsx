@@ -25,6 +25,7 @@ const ProductRoute: React.FC<Props> = () => {
   const [product, setProduct] = useState<any>({});
 
   useEffect(() => {
+    console.log(router.isReady);
     if (!router.isReady) {
       return;
     }
@@ -37,7 +38,11 @@ const ProductRoute: React.FC<Props> = () => {
     })();
   }, [router.isReady]);
 
-  return <ProductDetails id={id} image={product.image_link} {...product} />;
+  return router.isReady ? (
+    <ProductDetails id={id} image={product.image_link} {...product} />
+  ) : (
+    <></>
+  );
 };
 
 export default ProductRoute;

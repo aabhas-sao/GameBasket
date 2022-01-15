@@ -11,6 +11,6 @@ router.get('/', authenticateToken, (req: Request, res: Response) => {
 
 router.post('/login', loginController);
 router.post('/signup', signupController);
-router.get('/logout', logoutController);
+router.get('/logout', authenticateToken, logoutController);
 
 export default router;

@@ -11,6 +11,7 @@ export default function Example() {
   const user = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
+    console.log(user.uid);
     if (user.uid !== null) {
       setDisplayName(user.firstName + " " + user.lastName);
     } else {

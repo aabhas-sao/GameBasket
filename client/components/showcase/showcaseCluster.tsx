@@ -17,7 +17,7 @@ const ShowcaseCluster = () => {
 
       setLaptops(laptopRes.data.slice(0, 4));
       setDesktops(desktopRes.data.slice(0, 4));
-      setSmartphones(smartphoneRes.data.slice(0, 4));
+      setSmartphones(smartphoneRes.data.slice(0, 3));
     })();
   }, []);
 

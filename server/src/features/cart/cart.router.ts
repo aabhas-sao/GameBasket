@@ -5,7 +5,7 @@ import getCartController from './controllers/getCart';
 const router = Router();
 const cartConroller = new CartController();
 
-router.get('/', getCartController);
+router.post('/', getCartController);
 router.post('/add', addItemController);
 router.patch('/increment', cartConroller.increment);
 router.patch('/decrement', cartConroller.decrement);

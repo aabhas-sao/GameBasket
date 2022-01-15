@@ -5,9 +5,11 @@ import { MenuIcon } from "@heroicons/react/outline";
 import Cart from "./cart";
 import { navigation } from "./navigationMap";
 import { classNames } from "./classnames";
-import signout from "../../functions/signout";
 import { logout } from "../../redux/features/userSlice";
 import { useDispatch } from "react-redux";
+import { clear } from "../../redux/features/cart/cartSlice";
+import axios from "axios";
+import baseUrl from "../../constants/routes";
 
 interface PropsType {
   open: boolean;
@@ -17,6 +19,13 @@ interface PropsType {
 
 const Desktop: React.FC<PropsType> = ({ open, setOpen, displayName }) => {
   const dispatch = useDispatch();
+
+  const handleSignout = async () => {
+    await axios.get(`${baseUrl}/auth/logout`, { withCredentials: true });
+    dispatch(clear({}));
+    dispatch(logout({}));
+  };
+
   return (
     <header className="relative bg-white">
       <p className="bg-indigo-600 h-10 flex items-center justify-center text-sm font-medium text-white px-4 sm:px-6 lg:px-8">
@@ -166,11 +175,7 @@ const Desktop: React.FC<PropsType> = ({ open, setOpen, displayName }) => {
                 <div className="flex flex-row">
                   <h1 className="p-1">{displayName}</h1>
                   <button
-                    onClick={() => {
-                      console.log("signout");
-                      dispatch(logout({}));
-                      signout();
-                    }}
+                    onClick={handleSignout}
                     className="p-1 hidden lg:inline text-blue-700"
                   >
                     Sign out
