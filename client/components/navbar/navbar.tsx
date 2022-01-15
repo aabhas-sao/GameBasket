@@ -7,7 +7,7 @@ import { RootState } from "../../redux/store";
 
 export default function Example() {
   const [open, setOpen] = useState(false);
-  const [displayName, setDisplayName] = useState<string | null>("");
+  const [displayName, setDisplayName] = useState<string>("");
   const user = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Example() {
   return (
     <div className="bg-white">
       {/* Mobile menu */}
-      <Mobile open={open} setOpen={setOpen} />
+      <Mobile open={open} setOpen={setOpen} displayName={displayName} />
       <Desktop displayName={displayName} open={open} setOpen={setOpen} />
     </div>
   );

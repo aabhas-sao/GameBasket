@@ -4,13 +4,28 @@ import { Dialog, Tab, Transition } from "@headlessui/react";
 import { navigation } from "./navigationMap";
 import { XIcon } from "@heroicons/react/outline";
 import { classNames } from "./classnames";
+import { useDispatch } from "react-redux";
+import { clear } from "../../redux/features/cart/cartSlice";
+import { logout } from "../../redux/features/userSlice";
+import axios from "axios";
+import baseUrl from "../../constants/routes";
+import Link from "next/link";
 
 interface PropsType {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  displayName: string;
 }
 
-const Mobile: React.FC<PropsType> = ({ open, setOpen }) => {
+const Mobile: React.FC<PropsType> = ({ open, setOpen, displayName }) => {
+  const dispatch = useDispatch();
+
+  const handleSignout = async () => {
+    await axios.get(`${baseUrl}/auth/logout`, { withCredentials: true });
+    dispatch(clear({}));
+    dispatch(logout({}));
+  };
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -53,6 +68,37 @@ const Mobile: React.FC<PropsType> = ({ open, setOpen }) => {
 
             {/* Links */}
             <Tab.Group as="div" className="mt-2">
+              {displayName ? (
+                <div className="flex flex-row justify-center">
+                  <h1 className="p-1 font-bold">{displayName}</h1>
+                  <button onClick={handleSignout} className="p-1 text-blue-700">
+                    Sign out
+                  </button>
+                </div>
+              ) : (
+                <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+                  <div className="flow-root">
+                    <Link href="/auth/signin">
+                      <button
+                        onClick={() => setOpen(false)}
+                        className="-m-2 p-2 block font-medium text-gray-900"
+                      >
+                        Sign in
+                      </button>
+                    </Link>
+                  </div>
+                  <div className="flow-root">
+                    <Link href="/auth/signup">
+                      <button
+                        onClick={() => setOpen(false)}
+                        className="-m-2 p-2 block font-medium text-gray-900"
+                      >
+                        Create account
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              )}
               <div className="border-b border-gray-200">
                 <Tab.List className="-mb-px flex px-4 space-x-8">
                   {navigation.categories.map((category) => (
@@ -147,25 +193,6 @@ const Mobile: React.FC<PropsType> = ({ open, setOpen }) => {
                   </div>
                 ))}
               </div> */}
-
-            <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 p-2 block font-medium text-gray-900"
-                >
-                  Sign in
-                </a>
-              </div>
-              <div className="flow-root">
-                <a
-                  href="#"
-                  className="-m-2 p-2 block font-medium text-gray-900"
-                >
-                  Create account
-                </a>
-              </div>
-            </div>
 
             <div className="border-t border-gray-200 py-6 px-4">
               <a href="#" className="-m-2 p-2 flex items-center">
