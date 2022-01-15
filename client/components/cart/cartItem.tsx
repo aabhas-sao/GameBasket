@@ -1,10 +1,13 @@
+import axios from "axios";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import baseUrl from "../../constants/routes";
 import {
   decrement,
   increment,
   removeItem,
 } from "../../redux/features/cart/cartSlice";
+import { RootState } from "../../redux/store";
 import Add from "../ui/buttons/add";
 import CustomButton from "../ui/buttons/customButton";
 import Subtract from "../ui/buttons/subtract";
@@ -16,23 +19,50 @@ const CartItem: React.FC<{ details: any; count: number }> = ({
   count,
 }) => {
   const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.user);
+
+  const handleIncrement = async () => {
+    try {
+      await axios.patch(
+        `${baseUrl}/cart/increment`,
+        {
+          userId: user.uid,
+          productId: details.id,
+        },
+        { withCredentials: true }
+      );
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+    dispatch(increment({ id: details.id }));
+  };
+  const handleDecrement = () => {
+    try {
+      axios.patch(
+        `${baseUrl}/cart/decrement`,
+        {
+          userId: user.uid,
+          productId: details.id,
+        },
+        { withCredentials: true }
+      );
+    } catch (e) {
+      console.log(e);
+      return;
+    }
+    dispatch(decrement({ id: details.id }));
+  };
+
   return (
     <CardCompact {...details}>
       <div className="flex flex-col">
         <div className="flex flex-row items-center max-w-48">
-          <Subtract
-            handleClick={() => {
-              dispatch(decrement({ id: details.id }));
-            }}
-          />
+          <Subtract handleClick={handleDecrement} />
           <div className="mx-2">
             <p className="text-sm font-semibold">{count}</p>
           </div>
-          <Add
-            handleClick={() => {
-              dispatch(increment({ id: details.id }));
-            }}
-          />
+          <Add handleClick={handleIncrement} />
         </div>
         <Spacer px={2} />
         <CustomButton
