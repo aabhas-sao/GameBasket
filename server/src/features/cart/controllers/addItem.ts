@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ITEM_ALREADY_IN_CART, SUCCESS } from "../../../../../constants/literals";
+import { SUCCESS, ITEM_ALREADY_IN_CART } from "../../auth/services/constants";
 import addItem from "../services/addItem";
 
 const addItemController = async (req: Request, res: Response) => {
