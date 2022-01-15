@@ -14,11 +14,11 @@ export class CartItem extends BaseEntity {
   @Column({ default: 1 })
   count: number;
 
-  @ManyToOne(() => Product, product => product.userConnection)
+  @ManyToOne(() => Product, product => product.userConnection, { primary: true })
   @JoinColumn({ name: "productId" })
-  product: Product
+  product: Promise<Product>
 
-  @ManyToOne(() => User)
+  @ManyToOne(() => User, user => user.productConnection, { primary: true })
   @JoinColumn({ name: "userId" })
-  user: User
+  user: Promise<User>
 }

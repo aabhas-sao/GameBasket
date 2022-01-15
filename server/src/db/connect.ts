@@ -15,7 +15,7 @@ const connectDb = () => {
             },
             logging: false,
             entities: [
-                Product, User
+                Product, User, CartItem
             ]
         })
     } else {
@@ -24,7 +24,7 @@ const connectDb = () => {
             username: "postgres",
             port: 5432,
             password: "123",
-            synchronize: true,
+            synchronize: false,
             logging: true,
             database: "gamebasket",
             entities: [

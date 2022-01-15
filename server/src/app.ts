@@ -22,8 +22,9 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 
-createConnection().then((con) => {
-    con.synchronize();
+createConnection().then(async (con) => {
+    await con.synchronize();
+
     app.listen(PORT, () => {
         console.log(`server is running on ${PORT}`);
     })
