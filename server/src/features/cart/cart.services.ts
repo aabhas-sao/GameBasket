@@ -23,4 +23,8 @@ export class CartServices {
 
     await CartItem.update({ userId, productId }, newCartItem);
   }
+
+  delete = async (productId: number, userId: number) => {
+    await CartItem.delete({ userId, productId });
+  }
 }

@@ -15,4 +15,10 @@ export class CartController {
     await cartServices.decrement(productId, userId);
     res.json({ message: "decrement", productId, userId });
   }
+
+  delete = async (req: Request, res: Response) => {
+    const { productId, userId } = req.body;
+    await cartServices.delete(productId, userId);
+    res.json({ message: "item removed from cart", productId, userId });
+  }
 }

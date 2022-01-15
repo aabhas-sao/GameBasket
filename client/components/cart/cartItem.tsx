@@ -54,6 +54,21 @@ const CartItem: React.FC<{ details: any; count: number }> = ({
     dispatch(decrement({ id: details.id }));
   };
 
+  const handleDelete = async () => {
+    try {
+      axios.delete(`${baseUrl}/cart`, {
+        data: {
+          userId: user.uid,
+          productId: details.id,
+        },
+        withCredentials: true,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+    dispatch(removeItem({ id: details.id }));
+  };
+
   return (
     <CardCompact {...details}>
       <div className="flex flex-col">
@@ -69,9 +84,7 @@ const CartItem: React.FC<{ details: any; count: number }> = ({
           bgColor="bg-red-600"
           title="Delete"
           color="text-white"
-          handleClick={() => {
-            dispatch(removeItem({ id: details.id }));
-          }}
+          handleClick={handleDelete}
         />
       </div>
     </CardCompact>

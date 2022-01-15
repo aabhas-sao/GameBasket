@@ -9,5 +9,6 @@ router.get('/', getCartController);
 router.post('/add', addItemController);
 router.patch('/increment', cartConroller.increment);
 router.patch('/decrement', cartConroller.decrement);
+router.delete('/', cartConroller.delete);
 
 export default router;
