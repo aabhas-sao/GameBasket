@@ -13,13 +13,15 @@ const getCart = async (id: number) => {
   );
   const items = cart.data.data;
 
-  const reduxItems = items.map(({ count, product }: any) => ({
+  if (!items || items.size === 0) return;
+  console.log(items);
+  const reduxItems = items.map(({ count, __product__ }: any) => ({
     count,
     product: {
-      id: product.id,
-      image: product.image_link,
-      price: product.price,
-      title: product.title,
+      id: __product__.id,
+      image: __product__.image_link,
+      price: __product__.price,
+      title: __product__.title,
     },
   }));
 
