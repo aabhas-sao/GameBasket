@@ -16,7 +16,9 @@ const loginController = async (req: Request, res: Response) => {
       accessToken = `BEARER ${accessToken}`;
 
       res.status(200).cookie("jwt", accessToken, {
-        httpOnly: true
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
       }).json({
         message: "login succesful",
         ...user
