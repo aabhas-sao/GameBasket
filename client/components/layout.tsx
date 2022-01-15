@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import baseUrl from "../constants/routes";
+import { initialize } from "../redux/features/cart/cartSlice";
 import { login } from "../redux/features/userSlice";
 import Footer from "./footer";
 import Navbar from "./navbar/navbar";
@@ -29,6 +30,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         };
 
         dispatch(login(payload));
+
+        const cart = await axios.get(`${baseUrl}/cart`, {
+          withCredentials: true,
+        });
+        const items = cart.data.data;
+
+        console.log(items);
+
+        const reduxItems = items.map(({ count, product }: any) => ({
+          count,
+          product: {
+            id: product.id,
+            image: product.image_link,
+            price: product.price,
+            title: product.title,
+          },
+        }));
+
+        dispatch(initialize({ count: items.length, items: reduxItems }));
       }
     })();
   }, []);

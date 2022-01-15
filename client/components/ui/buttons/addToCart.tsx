@@ -12,10 +12,22 @@ const AddToCart: React.FC<{ item: any }> = ({ item }) => {
   const user = useSelector((state: RootState) => state.user);
 
   const handleClick = async () => {
-    await axios.post(`${baseUrl}/cart/add`, {
-      userId: user.uid,
-      productId: item.id,
-    });
+    try {
+      console.log(user.uid);
+      console.log(item.id);
+      await axios.post(
+        `${baseUrl}/cart/add`,
+        {
+          userId: user.uid,
+          productId: item.id,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+    } catch {
+      return;
+    }
 
     dispatch(addItem({ item: item }));
   };

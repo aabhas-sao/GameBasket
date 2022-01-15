@@ -39,5 +39,5 @@ export class Product extends BaseEntity {
     created_at
 
     @OneToMany(() => CartItem, cart => cart.product)
-    userConnection: Promise<CartItem[]>
+    userConnection: Promise<Product[]>
 }

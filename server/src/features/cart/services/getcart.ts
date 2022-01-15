@@ -3,9 +3,8 @@ import { User } from "../../users/user.entity";
 
 const getCart = (userId) => {
   try {
-    const connection = getConnection();
-    const userRepository = connection.getRepository(User);
-    const cartItems = userRepository.find({ relations: ["carts"], where: { id: userId } });
+    const cartItems = User.findOne(userId, { relations: ['productConnection'] });
+    console.log(cartItems);
     return cartItems;
   } catch (e) {
 

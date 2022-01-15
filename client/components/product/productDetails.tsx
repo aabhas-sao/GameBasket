@@ -19,7 +19,7 @@ const ProductDetails: React.FC<Props> = ({
   price,
   specs,
 }) => {
-  const product = { id, image, price, specs };
+  const product = { id, image, price, specs, title };
   return (
     <article className="w-10/12 mx-auto card flex flex-col md:flex-row h-full">
       <div className="w-2/5 h-36">

@@ -53,10 +53,15 @@ export const cartSlice = createSlice({
 
             state.count += 1;
             state.items.push({ count: 1, product: action.payload.item });
+        },
+        initialize: (state, action) => {
+            const { count, items } = action.payload;
+            state.count = count;
+            state.items = items;
         }
     }
 })
 
-export const { increment, decrement, addItem, removeItem } = cartSlice.actions
+export const { increment, decrement, addItem, removeItem, initialize } = cartSlice.actions
 
 export default cartSlice.reducer

@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Index, OneToMany } from "typeorm";
 import { CartItem } from "../cart/cartiIem.entity";
+import { Product } from "../products/product.entity";
 
 @Entity()
 export class User extends BaseEntity {
@@ -25,5 +26,5 @@ export class User extends BaseEntity {
     address: string
 
     @OneToMany(() => CartItem, cart => cart.user)
-    productConnection: Promise<User[]>;
+    productConnection: Promise<CartItem[]>;
 }

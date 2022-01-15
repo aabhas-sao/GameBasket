@@ -6,8 +6,7 @@ import { CartItem } from "../cartiIem.entity";
 import { ITEM_ALREADY_IN_CART } from '../../../../../constants/literals';
 
 const addItem = async (productId, userId) => {
-  console.log(productId, userId);
-  const item = CartItem.findOne({ productId, userId });
+  const item = await CartItem.findOne({ productId, userId });
   console.log(item);
   if (!item) {
     const item = await CartItem.create({
