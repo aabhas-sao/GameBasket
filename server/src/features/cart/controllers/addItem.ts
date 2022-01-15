@@ -4,9 +4,9 @@ import addItem from "../services/addItem";
 
 const addItemController = async (req: Request, res: Response) => {
   const { productId, userId } = req.body;
-  console.log(productId, userId);
+  console.log("productId ", productId, "userId", userId);
   const success = await addItem(productId, userId);
-  console.log(success);
+  console.log("success", success);
 
   switch (success.message) {
     case SUCCESS:

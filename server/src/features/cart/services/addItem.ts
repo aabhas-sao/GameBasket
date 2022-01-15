@@ -6,7 +6,7 @@ import { CartItem } from "../cartiIem.entity";
 
 const addItem = async (productId, userId) => {
   const item = await CartItem.findOne({ productId, userId });
-  console.log(item);
+  console.log("addItem service", item);
   if (!item) {
     const item = await CartItem.create({
       userId,

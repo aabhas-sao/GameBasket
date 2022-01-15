@@ -25,7 +25,7 @@ const connectDb = () => {
             port: 5432,
             password: "123",
             synchronize: false,
-            logging: true,
+            logging: false,
             database: "gamebasket",
             entities: [
                 Product, User, CartItem

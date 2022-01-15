@@ -25,7 +25,8 @@ const AddToCart: React.FC<{ item: any }> = ({ item }) => {
           withCredentials: true,
         }
       );
-    } catch {
+    } catch (e) {
+      console.log(e);
       return;
     }
 
