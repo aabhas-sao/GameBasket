@@ -15,10 +15,11 @@ app.use(cors({
     origin: (process.env.NODE_ENV === "production") ? "https://game-basket.vercel.app" : "http://localhost:3000"
 }));
 
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 
+app.set('trust proxy', 1)
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
